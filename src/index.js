@@ -21,9 +21,9 @@ setRootEl(viewContainer);
 // Handle initial URL load
 window.addEventListener("DOMContentLoaded", (event) => {
 //   setRootEl(/* root element */);
-setRootEl(viewContainer);
-// invoke onURLChange 
-onURLChange(event.target.location.pathname);
+  setRootEl(viewContainer);
+  // invoke onURLChange 
+  onURLChange(event.target.location.pathname);
 });
 
 // // Handle URL changes

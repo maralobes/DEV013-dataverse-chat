@@ -5,7 +5,7 @@ let rootEl = "";
 
 //Una función para establecer el elemento raíz del router.
 export const setRootEl = (newRootElementVaue) => {
-   rootEl = newRootElementVaue;
+  rootEl = newRootElementVaue;
 }
 
 //Esta función asigna el valor del argumento routes al objeto ROUTES. routes debe ser un objeto (considere verificar que sea un objeto y arrojar un error si no es así)
@@ -15,10 +15,10 @@ export const setRoutes = (newRoutesValue) => {
   // assign ROUTES
   if (typeof newRoutesValue === "object"){
     if(newRoutesValue['/error']){
-        ROUTES = newRoutesValue;
+      ROUTES = newRoutesValue;
     }
-  };
-  };
+  }
+};
 
 //una función de utilidad para convertir una cadena de search o query string (ejemplo ?name=Noemi&color=blue) en un objeto para acceder fácilmente a los parámetros de consulta. 
 const queryStringToObject = (queryString) => {
@@ -40,9 +40,9 @@ const renderView = (pathname, props= {}) => {
   rootClear.innerHTML = '';
   if(ROUTES[pathname]){
     const template = ROUTES[pathname]();
-    root.appendChild(template);
+    rootClear.appendChild(template);
   } else {
-    root.appendChild(ROUTES['/error']());
+    rootClear.appendChild(ROUTES['/error']());
   }
 
 } 
@@ -51,7 +51,7 @@ const renderView = (pathname, props= {}) => {
 export const navigateTo = (pathname, props= {}) => {
   // update window history with pushState
   // render the view with the pathname and props
-  const URLVisited = window.location.hostname + pathname;
+  const URLVisited = window.location.origin + pathname;
   history.pushState({}, "", URLVisited);
   renderView(pathname, props);
 }
