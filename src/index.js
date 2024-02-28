@@ -1,5 +1,3 @@
-
-
 /*
 TODO:
 1.- Definir rutas en router.
@@ -8,28 +6,28 @@ TODO:
 */
 import {Home} from './views/Home.js';
 import {About} from './views/About.js';
+import {Error} from './views/Error.js';
 // import Example from './views/Example';
 // ... import other views
 import { setRootEl, setRoutes, onURLChange } from './router.js';
 
-
 // Define your routes and their associated views
 const routes = {
-    '/': Home,
-    '/about': About,
-    // '/error': Error,
+  '/': Home,
+  '/about': About,
+  '/error': Error,
 };
   
-const container = document.getElementById("root")
+const viewContainer = document.getElementById("root")
 // Assign the routes
 setRoutes(routes);
-setRootEl(container);
+setRootEl(viewContainer);
 // Set the root element where views will be rendered
-  document.addEventListener("DOMContentLoaded", (event) => {
-    console.log("DOM loaded");
-    console.log(event.target.location.pathname);
-    onURLChange(event.target.location.pathname);
-  });
-  window.onpopstate = onURLChange;
-
+window.addEventListener("DOMContentLoaded", (e) => {
+  onURLChange(e.currentTarget.location.pathname);
+});
+window.onpopstate = onURLChange;
+// window.addEventListener('popstate', (e) => {
+//   onURLChange(e.currentTarget.location.pathname);
+// });
   
