@@ -1,5 +1,7 @@
-export const Error = () => {
-  const viewElement = document.createElement('div');
-  viewElement.innerHTML = "Page not found";
-  return viewElement;
+export const Error = () =>{
+    const viewEl = document.createElement('div');
+  viewEl.innerHTML = `        
+      <p>Error.</p>
+    `;
+  return viewEl;
 }
