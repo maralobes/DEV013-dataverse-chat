@@ -1,17 +1,18 @@
 import { Header } from "./../components/header.js";
 import data from "../data/dataset.js";
-import { Footer } from "./../components/Footer.js";
+import { Footer } from "./../components/footer.js";
 import { navigateTo } from "../router.js";
+import { sortContainer } from "../components/menu.js";
 
 export const Home = () => {
+ 
   const homeContainer = document.createElement("div")
   homeContainer.classList.add("homeElement");
 
-  const headerView = Header();
-  console.log(headerView);
   // const divHeader = document.createElement("div");
   // divHeader.classList.add("headerElement");
-  
+  const renderItems = (data) =>{
+    console.log(data);
   const ulList = document.createElement("ul");
   ulList.classList.add("fList");
   
@@ -60,16 +61,30 @@ export const Home = () => {
       locationWork,
       locationText,
     );
-
-    });
-   ulList.addEventListener('click', () => navigateTo ("/about", {}));
    
-    const footerView = Footer();
-    console.log(footerView);
-    // const divFooter = document.createElement("div");
-    // divFooter.classList.add("footerElement");
+    });
+    return ulList;
+  }
 
-    homeContainer.append(headerView, ulList, footerView);
+  //  ulList.addEventListener('click', () => navigateTo ("/about", {}));
+  const selectSort = document.querySelector('select[data-testid="select-sort"]');
+  console.log(selectSort);
+  selectSort.addEventListener("change", function (event) {
+    const orderData = sortByName(data, "name", event.target.value);
+    console.log(orderData);
+    homeContainer.innerHTML = "";
+    homeContainer.append(renderItems(orderData));
+  });
+  homeContainer.append(Header(), renderItems(data), Footer());
+
+  // const buttonClear = document.createElement("button");
+  // buttonClear.setAttribute("data-testid", "button-clear");
+  // buttonClear.addEventListener("click", function clear(){
+  // // filterContainer.selectedIndex = 0;
+  // sortContainer.selectedIndex = 0;
+  // homeContainer.innerHTML = "";
+  // homeContainer.appendChild(renderItems(data));
+// });
     return homeContainer;
   }; 
   
