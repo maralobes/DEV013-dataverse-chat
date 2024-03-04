@@ -26,8 +26,8 @@ setRootEl(viewContainer);
 window.addEventListener("DOMContentLoaded", (e) => {
   onURLChange(e.currentTarget.location.pathname);
 });
-window.onpopstate = onURLChange;
-// window.addEventListener('popstate', (e) => {
-//   onURLChange(e.currentTarget.location.pathname);
-// });
+// window.onpopstate = onURLChange;
+window.addEventListener('popstate', (e) => {
+  onURLChange(e.currentTarget.location.pathname);
+});
   

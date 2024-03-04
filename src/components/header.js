@@ -5,6 +5,7 @@ export const Header = () => {
   const headerContainer = document.createElement('div');
   headerContainer.classList.add("headerContainer");
   const header = document.createElement('header');
+  header.classList.add("header-title");
   header.innerHTML = `        
     <p>Exploring the wonders of our planet, one place at a time</p>
     `;

@@ -1,90 +1,143 @@
 import { Header } from "./../components/header.js";
+import { sortByName, filteredData } from "../lib/dataFunctions.js";
 import data from "../data/dataset.js";
 import { Footer } from "./../components/footer.js";
 import { navigateTo } from "../router.js";
-import { sortContainer } from "../components/menu.js";
+
 
 export const Home = () => {
- 
-  const homeContainer = document.createElement("div")
+  const homeContainer = document.createElement("div");
   homeContainer.classList.add("homeElement");
 
   // const divHeader = document.createElement("div");
   // divHeader.classList.add("headerElement");
-  const renderItems = (data) =>{
+  const renderItems = (data) => {
     console.log(data);
-  const ulList = document.createElement("ul");
-  ulList.classList.add("fList");
-  
-  data.forEach(item => {
-    const listItem = document.createElement("li");
-    listItem.classList.add("cList");
-    listItem.setAttribute("itemscope", "");
-    listItem.setAttribute("itemtype", "architectonics-works");
+    const ulList = document.createElement("ul");
+    ulList.classList.add("fList");
 
-    const archiWork = document.createElement("dl");
-    archiWork.setAttribute("itemscope", "");
-    archiWork.setAttribute("itemtype", "items");
+    data.forEach((item) => {
+      const listItem = document.createElement("li");
+      listItem.classList.add("cList");
+      listItem.setAttribute("itemscope", "");
+      listItem.setAttribute("itemtype", "architectonics-works");
 
-    const nameWork = document.createElement("dt");
-    nameWork.innerHTML = "Nombre:";
-    const nameText = document.createElement("dd");
-    nameText.setAttribute("itemprop", "name");
-    nameText.innerHTML = item.name;
-    nameWork.style.display = "none";
+      const archiWork = document.createElement("dl");
+      archiWork.setAttribute("itemscope", "");
+      archiWork.setAttribute("itemtype", "items");
 
-    const imageWork = document.createElement("img");
-    imageWork.setAttribute("src", item.imageUrl);
-    imageWork.setAttribute("alt", item.name);
-    imageWork.innerHTML = item.imageUrl;
+      const nameWork = document.createElement("dt");
+      nameWork.innerHTML = "Nombre:";
+      const nameText = document.createElement("dd");
+      nameText.setAttribute("itemprop", "name");
+      nameText.innerHTML = item.name;
+      nameWork.style.display = "none";
 
-    const factsWork = document.createElement("dl");
-    factsWork.setAttribute("itemscope", "");
-    factsWork.setAttribute("itemtype", "facts");
+      const imageWork = document.createElement("img");
+      imageWork.setAttribute("src", item.imageUrl);
+      imageWork.setAttribute("alt", item.name);
+      imageWork.innerHTML = item.imageUrl;
 
-    const locationWork = document.createElement("dt");
-    locationWork.innerHTML = "Location:";
-    const locationText = document.createElement("dd");
-    locationText.setAttribute("itemprop", "location");
-    locationText.innerHTML = item.facts.location;
-    locationWork.style.display = "none";
+      const factsWork = document.createElement("dl");
+      factsWork.setAttribute("itemscope", "");
+      factsWork.setAttribute("itemtype", "facts");
 
-    ulList.appendChild(listItem);
-    listItem.appendChild(archiWork);
-    archiWork.append(
-      imageWork,
-      nameWork,
-      nameText,
-      factsWork
-    );
-    factsWork.append(
-      locationWork,
-      locationText,
-    );
-   
+      const locationWork = document.createElement("dt");
+      locationWork.innerHTML = "Location:";
+      const locationText = document.createElement("dd");
+      locationText.setAttribute("itemprop", "location");
+      locationText.innerHTML = item.facts.location;
+      locationWork.style.display = "none";
+
+      ulList.appendChild(listItem);
+      listItem.appendChild(archiWork);
+      archiWork.append(imageWork, nameWork, nameText, factsWork);
+      factsWork.append(locationWork, locationText);
     });
     return ulList;
-  }
+  };
 
-  //  ulList.addEventListener('click', () => navigateTo ("/about", {}));
-  const selectSort = document.querySelector('select[data-testid="select-sort"]');
-  console.log(selectSort);
+
+
+  const filterElement = document.createElement("div");
+  filterElement.classList.add("filterElement");
+  filterElement.innerHTML = ` 
+  <div class="workFunction1">
+  <label for="filterVisitors">Filter by: </label>
+  <select data-testid="select-filter" name="annualVisitors" id="filterVisitors">
+    <option hidden value="disabled">Annual visitors</option>
+    <option value="firstRange">0-2000000</option>
+    <option value="secondRange">2000001-4000000</option>
+    <option value="thirdRange">4000001-6000000</option>
+    <option value="fourthRange">6000 001-8000000</option>
+    <option value="fifthRange">8000001-10000000</option>
+  </select>
+  </div>`;
+  console.log(filterElement);
+  const sortElement = document.createElement("div");
+  sortElement.classList.add("sortElement");
+  sortElement.innerHTML = `
+  <div class="workFunction2">
+  <label for="sortName">Sort by: </label>
+  <select data-testid="select-sort" name="name" id="sortName">
+    <option hidden value ="disabled">Name</option>
+    <option value="asc">A-Z</option>
+    <option value="desc">Z-A</option>
+  </select>
+  </div>`;
+
+const selectFilter = filterElement.querySelector('select[data-testid="select-filter"]');
+selectFilter.addEventListener("change", function (event) {
+  const filterAnnualVisitors = filteredData(data,"annualVisitors",event.target.value);
+  updateItems(filterAnnualVisitors);
+
+  const selectSort = sortElement.querySelector('select[data-testid="select-sort"]');
   selectSort.addEventListener("change", function (event) {
-    const orderData = sortByName(data, "name", event.target.value);
-    console.log(orderData);
-    homeContainer.innerHTML = "";
-    homeContainer.append(renderItems(orderData));
+    const orderData = sortByName(filterAnnualVisitors,"name",event.target.value);
+    updateItems(orderData);
   });
-  homeContainer.append(Header(), renderItems(data), Footer());
+});
 
-  // const buttonClear = document.createElement("button");
-  // buttonClear.setAttribute("data-testid", "button-clear");
-  // buttonClear.addEventListener("click", function clear(){
-  // // filterContainer.selectedIndex = 0;
-  // sortContainer.selectedIndex = 0;
-  // homeContainer.innerHTML = "";
-  // homeContainer.appendChild(renderItems(data));
-// });
-    return homeContainer;
-  }; 
+  const selectSort = sortElement.querySelector('select[data-testid="select-sort"]');
+  selectSort.addEventListener("change", function (event) {
+    const sortOrder = event.target.value;
+    const sortedData = sortByName(data, "name", sortOrder);
+    updateItems(sortedData);
+  });
+
+  const itemsContainer = document.createElement("div");
+  itemsContainer.classList.add("items-container");
+  itemsContainer.appendChild(renderItems(data));
+
+  const updateItems = (updatedData) => {
+    const itemsContainer = homeContainer.querySelector('.items-container');
+    itemsContainer.innerHTML = "";
+    itemsContainer.appendChild(renderItems(updatedData)); 
+  };
+
+
+
+  const buttonClear = document.createElement("button");
+  buttonClear.setAttribute("data-testid", "button-clear");
+  buttonClear.addEventListener("click", function clear(){
+  selectFilter.selectedIndex = 0;
+  selectSort.selectedIndex = 0;
+  updateItems(data);
+  });
+  const functionsContainer = document.createElement("div");
+  functionsContainer.classList.add("functionsContainer");
+
+  functionsContainer.append(filterElement, sortElement,buttonClear);
+  homeContainer.append(
+    Header(),
+    functionsContainer,
+    itemsContainer,
+    Footer()
+  );
+  // ulList.addEventListener('click', () => navigateTo ("/about", {}));
+  return homeContainer;
   
+};
+
+
+
