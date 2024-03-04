@@ -200,7 +200,7 @@
       box-shadow: 0 2px 0 2px rgba(0, 0.4, 0, 0.08);
       cursor: pointer;
   }
-  .statistics {
+  .statistics-button {
       font-size: 15px;
       font-family: "Inter", sans-serif;
       color: #444;
