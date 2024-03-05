@@ -24,10 +24,11 @@ setRoutes(routes);
 setRootEl(viewContainer);
 // Set the root element where views will be rendered
 window.addEventListener("DOMContentLoaded", (e) => {
-  onURLChange(e.currentTarget.location.pathname);
+  onURLChange(e);
 });
-window.onpopstate = onURLChange;
+// window.onpopstate = onURLChange(currentTarget.location.pathname);
 // window.addEventListener('popstate', (e) => {
 //   onURLChange(e.currentTarget.location.pathname);
 // });
   
+window.onpopstate = onURLChange;
