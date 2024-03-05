@@ -19,11 +19,15 @@ export const setRoutes = (routes) => {
     }
     ROUTES = routes;
 }
-// const queryStringToObject = (queryString) => {
-//   // convert query string to URLSearchParams
-//   // convert URLSearchParams to an object
-//   // return the object
-// }
+const queryStringToObject = (queryString) => {
+    // convert queryString to URLSearchParams
+    const newParamsUrl = new URLSearchParams(queryString);
+    // convert URLSearchParams to an object
+    const objectParamsUrl = Object.fromEntries(newParamsUrl);
+    // return the object
+//    const newParamsUrl =  Object.fromEntries([...new URLSearchParams(queryString.split('?')[1])]);
+    return objectParamsUrl; 
+  }
 
 const renderView = (pathname, props={}) => {
   console.log(pathname);
@@ -35,9 +39,9 @@ const renderView = (pathname, props={}) => {
   if(ROUTES[pathname]){
     const template = ROUTES[pathname](props);
     console.log(template);
-    root.appendChild(template);
+    root.append(template);
   }else{
-    root.appendChild(ROUTES["/error"]());
+    root.append(ROUTES["/error"]());
   }
   // in case not found render the error view
   // render the correct view passing the value of props
@@ -54,13 +58,14 @@ export const navigateTo = (pathname, props={}) => {
   renderView(pathname, props);
 }
 
-export const onURLChange = (l) => {
+export const onURLChange = ({currentTarget:{location}}) => {
   // parse the location for the pathname and search params
 
   // convert the search params to an object
   // render the view with the pathname and object
-  console.log(l);
-  renderView(l);
+  console.log(location.pathname, queryStringToObject(location));
+  renderView(location.pathname, queryStringToObject(location));
 }
+
 
 

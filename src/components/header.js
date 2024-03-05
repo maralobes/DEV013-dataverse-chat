@@ -7,9 +7,8 @@ export const Header = () => {
   const iconContainer = document.createElement('div');
   iconContainer.classList.add("iconContainer");
   const header = document.createElement('header');
-  header.classList.add("header-title");
+  header.classList.add("headerTittle");
   header.innerHTML = `   
-         
     <p>Exploring the wonders of our planet, one place at a time</p>
     `;
   iconContainer.append(iconHome(), iconStatistics())
