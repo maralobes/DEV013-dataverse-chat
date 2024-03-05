@@ -54,10 +54,9 @@ export const Home = () => {
       archiWork.append(imageWork, nameWork, nameText, factsWork);
       factsWork.append(locationWork, locationText);
     });
+    ulList.addEventListener('click', () => navigateTo ("/about", {}));
     return ulList;
   };
-
-
 
   const filterElement = document.createElement("div");
   filterElement.classList.add("filterElement");
@@ -115,8 +114,6 @@ selectFilter.addEventListener("change", function (event) {
     itemsContainer.appendChild(renderItems(updatedData)); 
   };
 
-
-
   const buttonClear = document.createElement("button");
   buttonClear.setAttribute("data-testid", "button-clear");
   buttonClear.addEventListener("click", function clear(){
@@ -127,14 +124,13 @@ selectFilter.addEventListener("change", function (event) {
   const functionsContainer = document.createElement("div");
   functionsContainer.classList.add("functionsContainer");
 
-  functionsContainer.append(filterElement, sortElement,buttonClear);
+  functionsContainer.append(filterElement, sortElement, buttonClear);
   homeContainer.append(
     Header(),
     functionsContainer,
     itemsContainer,
     Footer()
   );
-  // ulList.addEventListener('click', () => navigateTo ("/about", {}));
   return homeContainer;
   
 };

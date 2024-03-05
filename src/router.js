@@ -62,6 +62,5 @@ export const onURLChange = (l) => {
   console.log(l);
   renderView(l);
 }
-window.onpopstate = onURLChange;
 
 
