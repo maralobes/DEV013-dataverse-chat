@@ -51,9 +51,11 @@ export const Home = () => {
 
       ulList.appendChild(listItem);
       listItem.appendChild(archiWork);
+      listItem.addEventListener('click', () => navigateTo ("/about", item));
       archiWork.append(imageWork, nameWork, nameText, factsWork);
       factsWork.append(locationWork, locationText);
     });
+
     return ulList;
   };
 
@@ -119,6 +121,7 @@ selectFilter.addEventListener("change", function (event) {
 
   const buttonClear = document.createElement("button");
   buttonClear.setAttribute("data-testid", "button-clear");
+  buttonClear.innerHTML = "Clear";
   buttonClear.addEventListener("click", function clear(){
   selectFilter.selectedIndex = 0;
   selectSort.selectedIndex = 0;
@@ -134,7 +137,7 @@ selectFilter.addEventListener("change", function (event) {
     itemsContainer,
     Footer()
   );
-  // ulList.addEventListener('click', () => navigateTo ("/about", {}));
+
   return homeContainer;
   
 };
