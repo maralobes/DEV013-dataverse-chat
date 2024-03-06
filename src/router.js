@@ -22,10 +22,13 @@ export const setRoutes = (routes) => {
 const queryStringToObject = (queryString) => {
     // convert queryString to URLSearchParams
     const newParamsUrl = new URLSearchParams(queryString);
+    console.log(newParamsUrl);
     // convert URLSearchParams to an object
     const objectParamsUrl = Object.fromEntries(newParamsUrl);
+    console.log(objectParamsUrl);
     // return the object
 //    const newParamsUrl =  Object.fromEntries([...new URLSearchParams(queryString.split('?')[1])]);
+    console.log(objectParamsUrl);
     return objectParamsUrl; 
   }
 
@@ -49,23 +52,33 @@ const renderView = (pathname, props={}) => {
 } 
 
 export const navigateTo = (pathname, props={}) => {
-  // update window history with pushState
-  const URLvisited = window.location.origin + pathname;
-  //const URLvisited = window.location.hostname + pathname;
-  console.log(URLvisited);
-  history.pushState({}, "", URLvisited);
+//    const searchParams = queryStringToObject(props);
+//    const newSearchParams = searchParams.toString();
+//   // update window history with pushState
+//   const URLvisited = window.location.origin + pathname + '?' + newSearchParams;
+  const searchParams = new URLSearchParams(props);
+  const URLvisited = window.location.origin + pathname + '?' + searchParams;
+// const URLvisited = window.location.origin + pathname +`${props ? `? ${new URLSearchParams (props)}`: ""}`;
+console.log(searchParams);
+  if(window.history && window.history.pushState){
+    window.history.pushState({props}, "", URLvisited);
+    renderView(pathname, props);
+    console.log()
+  }else{
+    console.log('Error');
+  }
+//   history.pushState({}, "", URLvisited);
   // render the view with the pathname and props
-  renderView(pathname, props);
 }
+
 
 export const onURLChange = ({currentTarget:{location}}) => {
-  // parse the location for the pathname and search params
-
-  // convert the search params to an object
-  // render the view with the pathname and object
-  console.log(location.pathname, queryStringToObject(location));
-  renderView(location.pathname, queryStringToObject(location));
-}
-
-
-
+    // Parsear la ubicación para obtener la ruta y los parámetros de búsqueda
+    const pathname = location.pathname;
+    const searchParams = queryStringToObject(location);
+  
+    // Renderizar la vista con la ruta y los parámetros de búsqueda
+    console.log(pathname, searchParams);
+    renderView(pathname, searchParams);
+  }
+  

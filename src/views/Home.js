@@ -4,7 +4,6 @@ import data from "../data/dataset.js";
 import { Footer } from "./../components/footer.js";
 import { navigateTo } from "../router.js";
 
-
 export const Home = () => {
   const homeContainer = document.createElement("div");
   homeContainer.classList.add("homeElement");
@@ -51,7 +50,8 @@ export const Home = () => {
 
       ulList.appendChild(listItem);
       listItem.appendChild(archiWork);
-      listItem.addEventListener('click', () => navigateTo ("/about", item));
+
+      listItem.addEventListener('click', () => navigateTo ("/about", {id :item.id}));
       archiWork.append(imageWork, nameWork, nameText, factsWork);
       factsWork.append(locationWork, locationText);
     });
@@ -91,20 +91,19 @@ export const Home = () => {
 const selectFilter = filterElement.querySelector('select[data-testid="select-filter"]');
 selectFilter.addEventListener("change", function (event) {
   const filterAnnualVisitors = filteredData(data,"annualVisitors",event.target.value);
-  updateItems(filterAnnualVisitors);
 
   const selectSort = sortElement.querySelector('select[data-testid="select-sort"]');
   selectSort.addEventListener("change", function (event) {
     const orderData = sortByName(filterAnnualVisitors,"name",event.target.value);
     updateItems(orderData);
   });
+  updateItems(filterAnnualVisitors);
 });
 
   const selectSort = sortElement.querySelector('select[data-testid="select-sort"]');
   selectSort.addEventListener("change", function (event) {
-    const sortOrder = event.target.value;
-    const sortedData = sortByName(data, "name", sortOrder);
-    updateItems(sortedData);
+    const orderData = sortByName(data, "name", event.target.value);
+    updateItems(orderData);
   });
 
   const itemsContainer = document.createElement("div");
@@ -126,6 +125,11 @@ selectFilter.addEventListener("change", function (event) {
   selectFilter.selectedIndex = 0;
   selectSort.selectedIndex = 0;
   updateItems(data);
+  const selectSort = sortElement.querySelector('select[data-testid="select-sort"]');
+  selectSort.addEventListener("change", function (event) {
+    const orderData = sortByName(data, "name", event.target.value);
+    updateItems(orderData);
+  });
   });
   const functionsContainer = document.createElement("div");
   functionsContainer.classList.add("functionsContainer");
@@ -137,9 +141,7 @@ selectFilter.addEventListener("change", function (event) {
     itemsContainer,
     Footer()
   );
-
   return homeContainer;
-  
 };
 
 
