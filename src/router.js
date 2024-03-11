@@ -21,10 +21,21 @@ export const setRoutes = (routes) => {
 }
 const queryStringToObject = (queryString) => {
     // convert queryString to URLSearchParams
+<<<<<<< HEAD
     const newParamsUrl = new URLSearchParams(queryString.search);
     // convert URLSearchParams to an object
     const objectParamsUrl = Object.fromEntries(newParamsUrl.entries());
     console.log('objectParamsUrl', objectParamsUrl)
+=======
+    const newParamsUrl = new URLSearchParams(queryString);
+    console.log(newParamsUrl);
+    // convert URLSearchParams to an object
+    const objectParamsUrl = Object.fromEntries(newParamsUrl);
+    console.log(objectParamsUrl);
+    // return the object
+//    const newParamsUrl =  Object.fromEntries([...new URLSearchParams(queryString.split('?')[1])]);
+    console.log(objectParamsUrl);
+>>>>>>> 6fb7d4c (first try about view)
     return objectParamsUrl; 
   }
 
@@ -47,6 +58,7 @@ const renderView = (pathname, props) => {
   // add the view element to the DOM root element
 } 
 
+<<<<<<< HEAD
 export const navigateTo = (pathname, props) => {
   //   // update window history with pushState
     const searchParams = new URLSearchParams(props);
@@ -55,8 +67,31 @@ export const navigateTo = (pathname, props) => {
       window.history.pushState(props, "", URLvisited);
       renderView(pathname, props);
   }
+=======
+export const navigateTo = (pathname, props={}) => {
+//    const searchParams = queryStringToObject(props);
+//    const newSearchParams = searchParams.toString();
+//   // update window history with pushState
+//   const URLvisited = window.location.origin + pathname + '?' + newSearchParams;
+  const searchParams = new URLSearchParams(props);
+  const URLvisited = window.location.origin + pathname + '?' + searchParams;
+// const URLvisited = window.location.origin + pathname +`${props ? `? ${new URLSearchParams (props)}`: ""}`;
+console.log(searchParams);
+  if(window.history && window.history.pushState){
+    window.history.pushState({props}, "", URLvisited);
+    renderView(pathname, props);
+    console.log()
+  }else{
+    console.log('Error');
+  }
+//   history.pushState({}, "", URLvisited);
+  // render the view with the pathname and props
+}
+>>>>>>> 6fb7d4c (first try about view)
+
 
 export const onURLChange = ({currentTarget:{location}}) => {
+<<<<<<< HEAD
   // parse the location for the pathname and search params
   // convert the search params to an object
   // render the view with the pathname and object
@@ -66,3 +101,14 @@ export const onURLChange = ({currentTarget:{location}}) => {
 
 
 
+=======
+    // Parsear la ubicación para obtener la ruta y los parámetros de búsqueda
+    const pathname = location.pathname;
+    const searchParams = queryStringToObject(location);
+  
+    // Renderizar la vista con la ruta y los parámetros de búsqueda
+    console.log(pathname, searchParams);
+    renderView(pathname, searchParams);
+  }
+  
+>>>>>>> 6fb7d4c (first try about view)

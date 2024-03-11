@@ -6,10 +6,12 @@
 
 body {
   min-height: 100vh;
-  background-color: rgba(254, 252, 247, 1);
   font-family: "Inter", sans-serif;
   font-optical-sizing: auto;
   font-variation-settings: "slnt" 0;
+}
+#root {
+  height: 100vh;
 }
 .headerContainer {
   display: flex;
@@ -19,16 +21,19 @@ body {
   background-repeat: no-repeat;
   background-size: 100%;
   max-width: 100%;
-  /* width: 100em;
-      opacity: 110%;
-      height: 25em;
-      min-height: 100%; */
 }
 .iconContainer {
   display: flex;
+  align-items: center;
   flex-direction: row;
-  width: 100%;
   padding: 2%;
+  width: 100%;
+}
+.iconHomeContent {
+  display: flex;
+  width: 100%;
+  padding: 3.6% 2% 0 1.4%;
+  max-height: 4em;
 }
 .tittleButton {
   color: white;
@@ -68,130 +73,52 @@ body {
 }
 .headerTittle {
   color: white;
-  /* align-items: start; */
   font-size: calc(1.3em + 1vw);
   font-weight: bold;
   text-align: center;
   padding: 5% 22% 10% 22%;
 }
-.fList {
-  display: flex;
-  flex-flow: row wrap;
-  align-items: stretch;
-  gap: 7%;
-  list-style: none;
-  justify-content: center;
-  position: relative;
-  z-index: 1;
-}
-.cList {
-  object-fit: cover;
-  flex-direction: column;
-}
-.cList {
-  object-fit: cover;
-  flex-direction: column;
-}
-.cList img {
-  width: 350px;
-  height: 350px;
-  border-radius: 10%;
-  margin-block-start: 2em;
-  margin-block-end: 2em;
-}
-dl {
-  display: block;
-  margin-block-start: 0px;
-  margin-block-end: 1em;
-  margin-inline-start: 0px;
-  margin-inline-end: 0px;
-}
-[itemprop="name"] {
-  font-size: calc(0.8em + 1vw);
-  font-weight: bold;
-  width: 100%;
-  color: black;
-}
-[itemprop="location"] {
-  width: 100%;
-  font-size: calc(0.3em + 1vw);
-}
-[itemprop="annualVisitors"] {
-  width: 100%;
-  font-size: calc(0.3em + 1vw);
-}
-dt {
-  font-size: 24px;
-  font-weight: bold;
-}
-dd {
-  font-size: 18px;
-  color: #757577;
-}
-footer {
-  color: white;
-  font-weight: 500;
-  font-family: "Urbanist", sans-serif;
-  font-optical-sizing: auto;
-  font-style: normal;
-  font-size: 20px;
-  background-color: rgba(187, 149, 115, 1);
-  padding: 30px;
-  margin-top: 70px;
-  text-align: center;
-}
-.popup {
-  position: fixed;
-  z-index: 2;
-  padding: 5%;
-  border: 1px solid #ccc;
-}
+/* .popup {
+    position: fixed;
+    z-index: 2;
+    padding: 5%;
+    border: 1px solid #ccc;
+  } */
 .functionsContainer {
   display: flex;
   flex-flow: row wrap;
-  /* justify-content: space-evenly; */
-  /* position: relative; */
-  /* width: fit-content; */
   align-items: stretch;
   gap: 5%;
   position: relative;
-  margin-left: 20%;
-
-  background-color: linear-gradient(
-    rgba(187, 149, 115, 1),
-    rgba(193, 161, 133, 1),
-    rgba(194, 172, 153, 1)
-  );
+  margin: 0 10% 0 10%;
 }
-.filterElement{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-max-width: 50%;
-width: 350px;
+.filterElement {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 350px;
 }
-.sortElement{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-max-width: 50%;
-width: 350px;
-    }
+.sortElement {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 350px;
+}
 .workFunction1 {
   display: flex;
   flex-direction: column;
 }
 label[for="filterVisitors"] {
-    font-size: 1em;
-    margin: 1.5em 0 0 0.8em;
+  font-size: 1em;
+  margin: 1.5em 0 0 0.8em;
 }
 .workFunction2 {
   display: flex;
   flex-direction: column;
 }
 label[for="sortName"] {
-    font-size: 1em;
-    margin: 1.5em 0 0 0.8em;
+  font-size: 1em;
+  margin: 1.5em 0 0 0.8em;
 }
 select[data-testid="select-filter"] {
   display: inline;
@@ -206,7 +133,6 @@ select[data-testid="select-filter"] {
   border: 1.5px solid rgba(112, 78, 78, 1);
   border-radius: 1.5em;
   appearance: none;
-  background-color: #fff;
   background-image: url(https://cdn-icons-png.flaticon.com/512/54/54785.png);
   background-repeat: no-repeat, repeat;
   background-position: right 0.7em top 50%, 0 0;
@@ -227,7 +153,6 @@ select[data-testid="select-sort"] {
   border: 1.5px solid rgba(112, 78, 78, 1);
   border-radius: 1.5em;
   appearance: none;
-  background-color: #fff;
   background-image: url(https://cdn-icons-png.flaticon.com/512/54/54785.png);
   background-repeat: no-repeat, repeat;
   background-position: right 0.7em top 50%, 0 0;
@@ -251,39 +176,159 @@ button[data-testid="button-clear"] {
   box-shadow: 0 2px 0 2px rgba(0, 0.4, 0, 0.08);
   cursor: pointer;
 }
-
-.apikey-cont {
-  position: fixed;
-  top: 380px;
-  left: 25%;
-  width: 50%;
-  z-index: 2;
-  padding: 25px;
-  text-align: center;
-  border: 1px solid #ccc;
-  border-radius: 30px;
-  background: floralwhite;
+.items-container{
+  margin-bottom: 5%;
+}
+.fList {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: stretch;
+  gap: 7%;
+  list-style: none;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+.aboutInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  background-image: linear-gradient(
+    to bottom,
+    rgba(168, 111, 70, 1),
+    rgba(193, 161, 133, 1),
+    rgba(246, 235, 218, 1),
+    #fffaf0,
+    white
+  );
+  width: 100%;
+}
+.dataAbout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  list-style: none;
+  border: 2px solid rgba(112, 78, 78, 1);
+  border-radius: 1.6em;
+  width: 45%; 
+  margin: 3% auto 5% auto;
 }
 
+.cList {
+  object-fit: cover;
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  height: fit-content;
+}
+
+#infoAbout {
+  object-fit: cover;
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  background-color: whitesmoke; 
+  height: 100%;
+  border-radius: 1.6em;
+}
+.cList img {
+  width: 350px;
+  height: 350px;
+  border-radius: 10%;
+  margin-block-start: 2em;
+  margin-block-end: 0.5em;
+}
+dl {
+  display: block;
+  margin-block-start: 0px;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+.contentAbout {
+  margin: 3%;
+}
+[itemprop="name"] {
+  font-size: calc(0.6em + 1vw);
+  font-weight: bold;
+  width: 100%;
+  color: black;
+  margin: 0;
+}
+[itemprop="location"] {
+  width: 100%;
+  font-size: calc(0.3em + 1vw);
+}
+#imageAbout {
+  width: 100%;
+  min-width: 30%;
+  height: 100%;
+  max-height: 30em;
+  border-top-left-radius: 1.45em;
+  border-top-right-radius: 1.45em;
+  border-bottom-left-radius: 0em;
+  border-bottom-right-radius: 0em;
+  display: block;
+  margin: 0 auto 1em auto;
+}
+#nameAbout {
+  font-size: calc(0.05em + 1vw);
+  color: #757577;
+  font-weight: 400;
+  margin: 0 0 0.7em 0;
+}
+
+#locationAbout {
+  font-size: calc(0.05em + 1vw);
+  color: #757577;
+  font-weight: 400;
+}
+dt {
+  font-size: calc(0.2em + 1vw);
+  color: black;
+  font-weight: bold;
+}
+dd {
+  font-size: calc(0.05em + 1vw);
+  color: #757577;
+  margin: 0 0 0.7em 0;
+}
+
+.footerContainer {
+  color: white;
+  font-weight: 500;
+  font-family: "Urbanist", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-size: calc(0.4em + 1vw);
+  background-color: rgba(168, 111, 70, 1);
+  padding: 1.6%;
+  text-align: center;
+  width: 100%;
+}
 .popStats {
   position: fixed;
   top: 380px;
-  left: 25%;
-  width: 50%;
+  left: 30%;
+  width: 40%;
   z-index: 2;
   padding: 25px;
   text-align: center;
-  border: 1px solid #ccc;
+  border: 2px solid rgba(112, 78, 78, 1);
   border-radius: 30px;
-  background: floralwhite;
+  background: rgba(253, 249, 245, 1);
 }
 .buttonCloseStats {
   position: fixed;
   top: 384px;
-  left: 71.5%;
+  left: 66.5%;
   padding: 0.8em;
   box-sizing: border-box;
-  border: 1px solid #aaa;
+  border: 1.5px solid rgba(112, 78, 78, 1);
   border-radius: 1.5em;
   background-image: url(https://www.vhv.rs/dpng/d/156-1569718_close-button-icon-png-transparent-png.png);
   background-repeat: no-repeat, repeat;
