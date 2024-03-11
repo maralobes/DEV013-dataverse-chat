@@ -21,15 +21,14 @@ export const setRoutes = (routes) => {
 }
 const queryStringToObject = (queryString) => {
     // convert queryString to URLSearchParams
-    const newParamsUrl = new URLSearchParams(queryString);
+    const newParamsUrl = new URLSearchParams(queryString.search);
     // convert URLSearchParams to an object
-    const objectParamsUrl = Object.fromEntries(newParamsUrl);
-    // return the object
-//    const newParamsUrl =  Object.fromEntries([...new URLSearchParams(queryString.split('?')[1])]);
+    const objectParamsUrl = Object.fromEntries(newParamsUrl.entries());
+    console.log('objectParamsUrl', objectParamsUrl)
     return objectParamsUrl; 
   }
 
-const renderView = (pathname, props={}) => {
+const renderView = (pathname, props) => {
   console.log(pathname);
   // clear the root element
   const root = rootEl;
@@ -48,19 +47,17 @@ const renderView = (pathname, props={}) => {
   // add the view element to the DOM root element
 } 
 
-export const navigateTo = (pathname, props={}) => {
-  // update window history with pushState
-  const URLvisited = window.location.origin + pathname;
-  //const URLvisited = window.location.hostname + pathname;
-  console.log(URLvisited);
-  history.pushState({}, "", URLvisited);
-  // render the view with the pathname and props
-  renderView(pathname, props);
-}
+export const navigateTo = (pathname, props) => {
+  //   // update window history with pushState
+    const searchParams = new URLSearchParams(props);
+    console.log(props);
+    const URLvisited = window.location.origin + pathname + '?' + searchParams;
+      window.history.pushState(props, "", URLvisited);
+      renderView(pathname, props);
+  }
 
 export const onURLChange = ({currentTarget:{location}}) => {
   // parse the location for the pathname and search params
-
   // convert the search params to an object
   // render the view with the pathname and object
   console.log(location.pathname, queryStringToObject(location));

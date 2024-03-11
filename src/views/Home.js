@@ -8,9 +8,7 @@ import { navigateTo } from "../router.js";
 export const Home = () => {
   const homeContainer = document.createElement("div");
   homeContainer.classList.add("homeElement");
-
-  // const divHeader = document.createElement("div");
-  // divHeader.classList.add("headerElement");
+  
   const renderItems = (data) => {
     console.log(data);
     const ulList = document.createElement("ul");
@@ -51,7 +49,7 @@ export const Home = () => {
 
       ulList.appendChild(listItem);
       listItem.appendChild(archiWork);
-      listItem.addEventListener('click', () => navigateTo ("/about", item));
+      listItem.addEventListener('click', () => navigateTo ("/about", {id : item.id}));
       archiWork.append(imageWork, nameWork, nameText, factsWork);
       factsWork.append(locationWork, locationText);
     });
@@ -135,7 +133,7 @@ selectFilter.addEventListener("change", function (event) {
   );
 
   return homeContainer;
-  
+
 };
 
 

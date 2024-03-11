@@ -252,6 +252,19 @@ button[data-testid="button-clear"] {
   cursor: pointer;
 }
 
+.apikey-cont {
+  position: fixed;
+  top: 380px;
+  left: 25%;
+  width: 50%;
+  z-index: 2;
+  padding: 25px;
+  text-align: center;
+  border: 1px solid #ccc;
+  border-radius: 30px;
+  background: floralwhite;
+}
+
 .popStats {
   position: fixed;
   top: 380px;
