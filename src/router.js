@@ -22,15 +22,19 @@ export const setRoutes = (routes) => {
 const queryStringToObject = (queryString) => {
     // convert queryString to URLSearchParams
 <<<<<<< HEAD
+<<<<<<< HEAD
     const newParamsUrl = new URLSearchParams(queryString.search);
     // convert URLSearchParams to an object
     const objectParamsUrl = Object.fromEntries(newParamsUrl.entries());
     console.log('objectParamsUrl', objectParamsUrl)
 =======
     const newParamsUrl = new URLSearchParams(queryString);
+=======
+    const newParamsUrl = new URLSearchParams(queryString.search);
+>>>>>>> 4e29661 (CSS viewAbout and clean some comments)
     console.log(newParamsUrl);
     // convert URLSearchParams to an object
-    const objectParamsUrl = Object.fromEntries(newParamsUrl);
+    const objectParamsUrl = Object.fromEntries(newParamsUrl.entries());
     console.log(objectParamsUrl);
     // return the object
 //    const newParamsUrl =  Object.fromEntries([...new URLSearchParams(queryString.split('?')[1])]);
@@ -59,6 +63,7 @@ const renderView = (pathname, props) => {
 } 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 export const navigateTo = (pathname, props) => {
   //   // update window history with pushState
     const searchParams = new URLSearchParams(props);
@@ -73,19 +78,17 @@ export const navigateTo = (pathname, props={}) => {
 //    const newSearchParams = searchParams.toString();
 //   // update window history with pushState
 //   const URLvisited = window.location.origin + pathname + '?' + newSearchParams;
+=======
+export const navigateTo = (pathname, props) => {
+>>>>>>> 4e29661 (CSS viewAbout and clean some comments)
   const searchParams = new URLSearchParams(props);
+  console.log(props);
   const URLvisited = window.location.origin + pathname + '?' + searchParams;
 // const URLvisited = window.location.origin + pathname +`${props ? `? ${new URLSearchParams (props)}`: ""}`;
 console.log(searchParams);
-  if(window.history && window.history.pushState){
-    window.history.pushState({props}, "", URLvisited);
-    renderView(pathname, props);
-    console.log()
-  }else{
-    console.log('Error');
-  }
-//   history.pushState({}, "", URLvisited);
-  // render the view with the pathname and props
+  window.history.pushState({ id: props.id }, "", URLvisited);
+  renderView(pathname, props);
+
 }
 >>>>>>> 6fb7d4c (first try about view)
 

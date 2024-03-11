@@ -9,7 +9,6 @@ export const Home = () => {
   homeContainer.classList.add("homeElement");
 
   const renderItems = (data) => {
-    console.log(data);
     const ulList = document.createElement("ul");
     ulList.classList.add("fList");
 
@@ -72,7 +71,6 @@ export const Home = () => {
     <option value="fifthRange">8000001-10000000</option>
   </select>
   </div>`;
-  console.log(filterElement);
   const sortElement = document.createElement("div");
   sortElement.classList.add("sortElement");
   sortElement.innerHTML = `
