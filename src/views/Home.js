@@ -50,6 +50,7 @@ export const Home = () => {
       listItem.addEventListener("click", () =>
         navigateTo("/about", { id: item.id })
       );
+
       archiWork.append(imageWork, nameWork, nameText, factsWork);
       factsWork.append(locationWork, locationText);
     });
@@ -139,6 +140,7 @@ export const Home = () => {
       const orderData = sortByName(data, "name", event.target.value);
       updateItems(orderData);
     });
+
   });
   const functionsContainer = document.createElement("div");
   functionsContainer.classList.add("functionsContainer");

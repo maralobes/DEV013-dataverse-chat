@@ -25,7 +25,6 @@ export const iconChats = () => {
   });
   return divIconChats;
 };
-
 export const iconStatistics = () => {
   const divStatistics = document.createElement("div");
   divStatistics.classList.add("statistics");

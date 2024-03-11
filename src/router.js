@@ -23,6 +23,7 @@ const queryStringToObject = (queryString) => {
     // convert queryString to URLSearchParams
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     const newParamsUrl = new URLSearchParams(queryString.search);
     // convert URLSearchParams to an object
     const objectParamsUrl = Object.fromEntries(newParamsUrl.entries());
@@ -35,11 +36,20 @@ const queryStringToObject = (queryString) => {
     console.log(newParamsUrl);
     // convert URLSearchParams to an object
     const objectParamsUrl = Object.fromEntries(newParamsUrl.entries());
+=======
+    const newParamsUrl = new URLSearchParams(queryString.search);
+    console.log(newParamsUrl);
+    // convert URLSearchParams to an object
+    const objectParamsUrl = Object.fromEntries(newParamsUrl.entries());
+>>>>>>> 4e2966156f5e730ab9679717a174636f06e7ef8a
     console.log(objectParamsUrl);
     // return the object
 //    const newParamsUrl =  Object.fromEntries([...new URLSearchParams(queryString.split('?')[1])]);
     console.log(objectParamsUrl);
+<<<<<<< HEAD
 >>>>>>> 6fb7d4c (first try about view)
+=======
+>>>>>>> 4e2966156f5e730ab9679717a174636f06e7ef8a
     return objectParamsUrl; 
   }
 
@@ -64,6 +74,7 @@ const renderView = (pathname, props) => {
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 export const navigateTo = (pathname, props) => {
   //   // update window history with pushState
     const searchParams = new URLSearchParams(props);
@@ -81,6 +92,9 @@ export const navigateTo = (pathname, props={}) => {
 =======
 export const navigateTo = (pathname, props) => {
 >>>>>>> 4e29661 (CSS viewAbout and clean some comments)
+=======
+export const navigateTo = (pathname, props) => {
+>>>>>>> 4e2966156f5e730ab9679717a174636f06e7ef8a
   const searchParams = new URLSearchParams(props);
   console.log(props);
   const URLvisited = window.location.origin + pathname + '?' + searchParams;
@@ -93,7 +107,9 @@ console.log(searchParams);
 >>>>>>> 6fb7d4c (first try about view)
 
 
+
 export const onURLChange = ({currentTarget:{location}}) => {
+<<<<<<< HEAD
 <<<<<<< HEAD
   // parse the location for the pathname and search params
   // convert the search params to an object
@@ -105,6 +121,8 @@ export const onURLChange = ({currentTarget:{location}}) => {
 
 
 =======
+=======
+>>>>>>> 4e2966156f5e730ab9679717a174636f06e7ef8a
     // Parsear la ubicación para obtener la ruta y los parámetros de búsqueda
     const pathname = location.pathname;
     const searchParams = queryStringToObject(location);
@@ -114,4 +132,7 @@ export const onURLChange = ({currentTarget:{location}}) => {
     renderView(pathname, searchParams);
   }
   
+<<<<<<< HEAD
 >>>>>>> 6fb7d4c (first try about view)
+=======
+>>>>>>> 4e2966156f5e730ab9679717a174636f06e7ef8a
