@@ -1,18 +1,17 @@
-import { computeStats} from "../lib/dataFunctions.js";
+import { computeStats } from "../lib/dataFunctions.js";
 import { navigateTo } from "../router.js";
 import data from "./../data/dataset.js";
 import { ApiKeyModal } from "./ApiKeyModal.js";
 
-export const iconHome = () =>{
-  const buttonHome =  document.createElement("button");
+export const iconHome = () => {
+  const buttonHome = document.createElement("button");
   buttonHome.classList.add("tittleButton");
   buttonHome.innerHTML = "ARCHITOPIA";
-  // console.log(buttonHome);
-  buttonHome.addEventListener('click', () => navigateTo ("/", {}));
+  buttonHome.addEventListener("click", () => navigateTo("/", {}));
   return buttonHome;
-} 
+};
 
-export const iconChats = () =>{
+export const iconChats = () => {
   const divIconChats = document.createElement("div");
   divIconChats.classList.add("chats");
   const buttonChats = document.createElement("button");
@@ -26,14 +25,21 @@ export const iconChats = () =>{
   });
   return divIconChats;
 };
-
-export const iconStatistics= () =>{
+export const iconStatistics = () => {
   const divStatistics = document.createElement("div");
   divStatistics.classList.add("statistics");
   const buttonStats = document.createElement("button");
-  console.log(buttonStats);
   buttonStats.classList.add("statistics-button");
-  buttonStats.addEventListener("click", function popupStats(){
+  buttonStats.addEventListener("click", function popupStats() {
+    const funcStats = document.querySelector(
+      'div[class = "functionsContainer"]'
+    );
+    const itemStats = document.querySelector('div[class = "items-container"]');
+    const headStats = document.querySelector('header[class = "headerTittle"]');
+    funcStats.style.filter = "blur(2px)";
+    itemStats.style.filter = "blur(2px)";
+    headStats.style.filter = "blur(2px)";
+
     const stats = computeStats(data);
     const popupStatsWonder = document.createElement("div");
     popupStatsWonder.className = "popStats";
@@ -42,15 +48,23 @@ export const iconStatistics= () =>{
     buttonCloseStats.className = "buttonCloseStats";
     popupStatsWonder.append(buttonCloseStats);
     divStatistics.append(popupStatsWonder);
-    popupStatsWonder.addEventListener('click', function closePopup() {
+    
+    popupStatsWonder.addEventListener("click", function closePopup() {
+      const funcStats = document.querySelector(
+        'div[class = "functionsContainer"]'
+      );
+      const itemStats = document.querySelector(
+        'div[class = "items-container"]'
+      );
+      const headStats = document.querySelector(
+        'header[class = "headerTittle"]'
+      );
+      funcStats.style.filter = "none";
+      itemStats.style.filter = "none";
+      headStats.style.filter = "none";
       divStatistics.removeChild(popupStatsWonder);
     });
   });
   divStatistics.appendChild(buttonStats);
   return divStatistics;
-} 
-
-
-
-
-
+};
