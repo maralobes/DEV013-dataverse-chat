@@ -47,8 +47,7 @@ export const Home = () => {
 
       ulList.appendChild(listItem);
       listItem.appendChild(archiWork);
-      listItem.addEventListener("click", () =>
-        navigateTo("/about", { id: item.id })
+      listItem.addEventListener("click", () =>navigateTo("/about", { id: item.id })
       );
 
       archiWork.append(imageWork, nameWork, nameText, factsWork);
@@ -133,13 +132,6 @@ export const Home = () => {
     selectFilter.selectedIndex = 0;
     selectSort.selectedIndex = 0;
     updateItems(data);
-    const selectSort = sortElement.querySelector(
-      'select[data-testid="select-sort"]'
-    );
-    selectSort.addEventListener("change", function (event) {
-      const orderData = sortByName(data, "name", event.target.value);
-      updateItems(orderData);
-    });
 
   });
   const functionsContainer = document.createElement("div");
