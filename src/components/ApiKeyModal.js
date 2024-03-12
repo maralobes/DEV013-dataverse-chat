@@ -1,3 +1,5 @@
+import { getApiKey } from "../lib/ApiKey";
+
 export const ApiKeyModal = () => {
   const apiKeyContainer = document.createElement("div");
   apiKeyContainer.classList.add("apikey-cont");
@@ -14,9 +16,9 @@ export const ApiKeyModal = () => {
   const buttonSaveApiKey = document.createElement("button");
   buttonSaveApiKey.setAttribute("data-testid", "button-ApiKey");
   buttonSaveApiKey.innerHTML = "Save";
-  // Aquí llamamos a la función que guarda la api key? setApiKey()
-  // buttonSaveApiKey.addEventListener("click", setApiKey()){
-  // };
+  buttonSaveApiKey.addEventListener("click", getApiKey()){
+    
+  };
 
   apiKeyContainer.append(textInput, inputApiKey, buttonSaveApiKey);
   return apiKeyContainer;

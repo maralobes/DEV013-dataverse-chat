@@ -1,4 +1,4 @@
-import { setApiKey, getApiKey } from "../src/lib/apiKey.js";
+import { setApiKey, getApiKey } from "../src/lib/ApiKey.js";
 
 describe('getApiKey', () => {
 
