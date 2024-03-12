@@ -84,17 +84,17 @@ export const Home = () => {
   </select>
   </div>`;
 
-const selectFilter = filterElement.querySelector('select[data-testid="select-filter"]');
-selectFilter.addEventListener("change", function (event) {
-  const filterAnnualVisitors = filteredData(data,"annualVisitors",event.target.value);
-  updateItems(filterAnnualVisitors);
+  const selectFilter = filterElement.querySelector('select[data-testid="select-filter"]');
+  selectFilter.addEventListener("change", function (event) {
+    const filterAnnualVisitors = filteredData(data,"annualVisitors",event.target.value);
+    updateItems(filterAnnualVisitors);
 
-  const selectSort = sortElement.querySelector('select[data-testid="select-sort"]');
-  selectSort.addEventListener("change", function (event) {
-    const orderData = sortByName(filterAnnualVisitors,"name",event.target.value);
-    updateItems(orderData);
+    const selectSort = sortElement.querySelector('select[data-testid="select-sort"]');
+    selectSort.addEventListener("change", function (event) {
+      const orderData = sortByName(filterAnnualVisitors,"name",event.target.value);
+      updateItems(orderData);
+    });
   });
-});
 
   const selectSort = sortElement.querySelector('select[data-testid="select-sort"]');
   selectSort.addEventListener("change", function (event) {
@@ -117,9 +117,9 @@ selectFilter.addEventListener("change", function (event) {
   buttonClear.setAttribute("data-testid", "button-clear");
   buttonClear.innerHTML = "Clear";
   buttonClear.addEventListener("click", function clear(){
-  selectFilter.selectedIndex = 0;
-  selectSort.selectedIndex = 0;
-  updateItems(data);
+    selectFilter.selectedIndex = 0;
+    selectSort.selectedIndex = 0;
+    updateItems(data);
   });
   const functionsContainer = document.createElement("div");
   functionsContainer.classList.add("functionsContainer");
