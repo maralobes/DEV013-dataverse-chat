@@ -19,19 +19,16 @@ export const setRoutes = (routes) => {
     }
   }
   ROUTES = routes;
-};
+}
+
 const queryStringToObject = (queryString) => {
   // convert queryString to URLSearchParams
-
   const newParamsUrl = new URLSearchParams(queryString.search);
   // convert URLSearchParams to an object
   const objectParamsUrl = Object.fromEntries(newParamsUrl.entries());
-  console.log("objectParamsUrl", objectParamsUrl);
-  console.log(objectParamsUrl);
-  // return the object
-  //    const newParamsUrl =  Object.fromEntries([...new URLSearchParams(queryString.split('?')[1])]);
-  return objectParamsUrl;
-};
+  console.log('objectParamsUrl', objectParamsUrl)
+  return objectParamsUrl; 
+}
 
 const renderView = (pathname, props) => {
   console.log(pathname);
@@ -53,14 +50,13 @@ const renderView = (pathname, props) => {
 };
 
 export const navigateTo = (pathname, props) => {
+  //   // update window history with pushState
   const searchParams = new URLSearchParams(props);
   console.log(props);
-  const URLvisited = window.location.origin + pathname + "?" + searchParams;
-  // const URLvisited = window.location.origin + pathname +`${props ? `? ${new URLSearchParams (props)}`: ""}`;
-  console.log(searchParams);
-  window.history.pushState({ id: props.id }, "", URLvisited);
+  const URLvisited = window.location.origin + pathname + '?' + searchParams;
+  window.history.pushState(props, "", URLvisited);
   renderView(pathname, props);
-};
+}
 
 export const onURLChange = ({ currentTarget: { location } }) => {
   // parse the location for the pathname and search params

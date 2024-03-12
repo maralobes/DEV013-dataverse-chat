@@ -4,6 +4,7 @@ export const ApiKeyModal = () => {
 
   const inputApiKey = document.createElement("input");
   inputApiKey.classList.add("input-apikey");
+
   inputApiKey.value = "el api key que esta en el localstorage ";
   // inputApiKey.placeholder.add("Ingrese su Api Key");
 

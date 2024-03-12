@@ -128,11 +128,11 @@ export const Home = () => {
   const buttonClear = document.createElement("button");
   buttonClear.setAttribute("data-testid", "button-clear");
   buttonClear.innerHTML = "Clear";
+  
   buttonClear.addEventListener("click", function clear() {
     selectFilter.selectedIndex = 0;
     selectSort.selectedIndex = 0;
     updateItems(data);
-
   });
   const functionsContainer = document.createElement("div");
   functionsContainer.classList.add("functionsContainer");

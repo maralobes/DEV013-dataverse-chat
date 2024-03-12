@@ -39,6 +39,7 @@ export const iconStatistics = () => {
     funcStats.style.filter = "blur(2px)";
     itemStats.style.filter = "blur(2px)";
     headStats.style.filter = "blur(2px)";
+
     const stats = computeStats(data);
     const popupStatsWonder = document.createElement("div");
     popupStatsWonder.className = "popStats";
@@ -47,6 +48,7 @@ export const iconStatistics = () => {
     buttonCloseStats.className = "buttonCloseStats";
     popupStatsWonder.append(buttonCloseStats);
     divStatistics.append(popupStatsWonder);
+    
     popupStatsWonder.addEventListener("click", function closePopup() {
       const funcStats = document.querySelector(
         'div[class = "functionsContainer"]'
