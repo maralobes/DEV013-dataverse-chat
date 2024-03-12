@@ -4,13 +4,11 @@ import data from "../data/dataset.js";
 import { Footer } from "./../components/footer.js";
 import { navigateTo } from "../router.js";
 
-
 export const Home = () => {
   const homeContainer = document.createElement("div");
   homeContainer.classList.add("homeElement");
-  
+
   const renderItems = (data) => {
-    console.log(data);
     const ulList = document.createElement("ul");
     ulList.classList.add("fList");
 
@@ -49,7 +47,9 @@ export const Home = () => {
 
       ulList.appendChild(listItem);
       listItem.appendChild(archiWork);
-      listItem.addEventListener('click', () => navigateTo ("/about", {id : item.id}));
+      listItem.addEventListener("click", () =>navigateTo("/about", { id: item.id })
+      );
+
       archiWork.append(imageWork, nameWork, nameText, factsWork);
       factsWork.append(locationWork, locationText);
     });
@@ -71,7 +71,6 @@ export const Home = () => {
     <option value="fifthRange">8000001-10000000</option>
   </select>
   </div>`;
-  console.log(filterElement);
   const sortElement = document.createElement("div");
   sortElement.classList.add("sortElement");
   sortElement.innerHTML = `
@@ -84,23 +83,36 @@ export const Home = () => {
   </select>
   </div>`;
 
-  const selectFilter = filterElement.querySelector('select[data-testid="select-filter"]');
+  const selectFilter = filterElement.querySelector(
+    'select[data-testid="select-filter"]'
+  );
   selectFilter.addEventListener("change", function (event) {
-    const filterAnnualVisitors = filteredData(data,"annualVisitors",event.target.value);
-    updateItems(filterAnnualVisitors);
+    const filterAnnualVisitors = filteredData(
+      data,
+      "annualVisitors",
+      event.target.value
+    );
 
-    const selectSort = sortElement.querySelector('select[data-testid="select-sort"]');
+    const selectSort = sortElement.querySelector(
+      'select[data-testid="select-sort"]'
+    );
     selectSort.addEventListener("change", function (event) {
-      const orderData = sortByName(filterAnnualVisitors,"name",event.target.value);
+      const orderData = sortByName(
+        filterAnnualVisitors,
+        "name",
+        event.target.value
+      );
       updateItems(orderData);
     });
+    updateItems(filterAnnualVisitors);
   });
 
-  const selectSort = sortElement.querySelector('select[data-testid="select-sort"]');
+  const selectSort = sortElement.querySelector(
+    'select[data-testid="select-sort"]'
+  );
   selectSort.addEventListener("change", function (event) {
-    const sortOrder = event.target.value;
-    const sortedData = sortByName(data, "name", sortOrder);
-    updateItems(sortedData);
+    const orderData = sortByName(data, "name", event.target.value);
+    updateItems(orderData);
   });
 
   const itemsContainer = document.createElement("div");
@@ -108,15 +120,16 @@ export const Home = () => {
   itemsContainer.appendChild(renderItems(data));
 
   const updateItems = (updatedData) => {
-    const itemsContainer = homeContainer.querySelector('.items-container');
+    const itemsContainer = homeContainer.querySelector(".items-container");
     itemsContainer.innerHTML = "";
-    itemsContainer.appendChild(renderItems(updatedData)); 
+    itemsContainer.appendChild(renderItems(updatedData));
   };
 
   const buttonClear = document.createElement("button");
   buttonClear.setAttribute("data-testid", "button-clear");
   buttonClear.innerHTML = "Clear";
-  buttonClear.addEventListener("click", function clear(){
+  
+  buttonClear.addEventListener("click", function clear() {
     selectFilter.selectedIndex = 0;
     selectSort.selectedIndex = 0;
     updateItems(data);
@@ -125,16 +138,6 @@ export const Home = () => {
   functionsContainer.classList.add("functionsContainer");
 
   functionsContainer.append(filterElement, sortElement, buttonClear);
-  homeContainer.append(
-    Header(),
-    functionsContainer,
-    itemsContainer,
-    Footer()
-  );
-
+  homeContainer.append(Header(), functionsContainer, itemsContainer, Footer());
   return homeContainer;
-
 };
-
-
-
