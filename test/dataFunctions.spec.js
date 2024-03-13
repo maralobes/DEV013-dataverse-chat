@@ -1,9 +1,6 @@
-import {
-  filteredData,
-  sortByName,
-  computeStats,
-} from "../src/dataFunctions.js";
+import { filteredData, sortByName, computeStats } from "../src/lib/dataFunctions.js";
 import { data as fakeData } from "./data.js";
+
 describe("filterBy", () => {
   it("returns `filteredData` according to its range", () => {
     const resultado1 = filteredData(fakeData, "annualVisitors", "firstRange");

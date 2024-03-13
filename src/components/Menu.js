@@ -36,8 +36,6 @@ export const iconChats = () => {
     divIconChats.append(boxApiKey);
     boxApiKey.appendChild(apiKeyPopup);
 
-    console.log(boxApiKey);
-
     closeButton.addEventListener("click", function closePopup() {
       const headerTitle = document.querySelector(".headerTittle");
       headerTitle.style.visibility = "visible";
@@ -47,8 +45,6 @@ export const iconChats = () => {
       itemStats.style.filter = "none";
       divIconChats.removeChild(boxApiKey);
       divIconChats.removeChild(closeButton);
-      console.log(divIconChats);
-      console.log(headerTitle);
     });
 
     boxApiKey.appendChild(closeButton);

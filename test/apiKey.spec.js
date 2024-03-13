@@ -1,15 +1,18 @@
-import { setApiKey, getApiKey } from "../src/lib/ApiKey.js";
+import {setApiKey, getApiKey } from "../src/lib/ApiKey.js";
 
 describe('getApiKey', () => {
-
   it('debería devolver el valor de la API Key', () => {
-    expect(getApiKey()).toBe('apikey');
+    const mockApiKey = 'xOpn54aRpgd07h6';
+    localStorage.setItem('api-key', mockApiKey);
+    expect(getApiKey()).toEqual(mockApiKey);
   });
 });
 
 describe('setApiKey', () => {
 
   it('debería establecer correctamente la API Key', () => {
-    expect(setApiKey(key)).toBe('apikey', key);
+    const mockApiKey = 'xOpn54aRpgd07h6';
+    setApiKey(mockApiKey);
+    expect(localStorage.getItem('api-key')).toEqual(mockApiKey);
   });
 });

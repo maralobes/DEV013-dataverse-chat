@@ -20,7 +20,6 @@ export const ApiKeyModal = () => {
   buttonSaveApiKey.innerHTML = "Save";
   buttonSaveApiKey.addEventListener("click", function(){
     const myinput = document.querySelector('input[class="input-apikey"]');
-    console.log(myinput.value);
     setApiKey(myinput.value);
   });
 
