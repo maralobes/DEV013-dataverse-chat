@@ -71,6 +71,32 @@ body {
   box-shadow: 0 1px 0 1px rgba(0, 0, 0, 0.04);
   cursor: pointer;
 }
+
+.apikey-cont {
+  width: 100%;
+  display: flex;
+  margin: 0.5em;
+  flex-direction: row-reverse;
+  padding: 0 1em 0 0;
+}
+.apiKey-button {
+  height: 50px;
+  width: 100%;
+  max-width: 50px;
+  box-sizing: border-box;
+  margin: 0.5em;
+  padding: 0.6em 0 0.6em 0;
+  border: 2px solid rgba(112, 78, 78, 1);
+  border-radius: 50%;
+  background-color: rgba(253, 249, 245, 1);
+  background-image: url(https://github.com/C-LedezmaRodriguez/DEV013-dataverse-chat/blob/main/src/images/statistics-icon.png?raw=true);
+  background-repeat: no-repeat, repeat;
+  background-position: center;
+  background-size: 3.1em auto, 100%;
+  box-shadow: 0 1px 0 1px rgba(0, 0, 0, 0.04);
+  cursor: pointer;
+}
+
 .headerTittle {
   color: white;
   font-size: calc(1.3em + 1vw);
