@@ -1,4 +1,4 @@
-import { getApiKey, setApiKey } from "../lib/ApiKey.js";
+import { setApiKey } from "../lib/ApiKey.js";
 
 export const ApiKeyModal = () => {
   const apiKeyContainer = document.createElement("div");
@@ -7,9 +7,8 @@ export const ApiKeyModal = () => {
   const inputApiKey = document.createElement("input");
   inputApiKey.classList.add("input-apikey");
   inputApiKey.setAttribute("type", "text");
-  //   inputApiKey.placeholder("Ingrese su Api Key");
+  inputApiKey.setAttribute("placeholder", "Ingrese su Api Key");
   //   inputApiKey.value = "el api key que esta en el localstorage ";
-
 
   //   const textInput = document.createElement("p");
   //   textInput.classList.add("text-apikey");
@@ -20,7 +19,8 @@ export const ApiKeyModal = () => {
   buttonSaveApiKey.classList.add("apiKey-button")
   buttonSaveApiKey.innerHTML = "Save";
   buttonSaveApiKey.addEventListener("click", function(){
-    const myinput = document.querySelector('input[class="input-apikey"]')
+    const myinput = document.querySelector('input[class="input-apikey"]');
+    console.log(myinput.value);
     setApiKey(myinput.value);
   });
 
