@@ -7,13 +7,13 @@ export const ApiKeyModal = () => {
   const inputApiKey = document.createElement("input");
   inputApiKey.classList.add("input-apikey");
   inputApiKey.setAttribute("type", "text");
-//   inputApiKey.placeholder("Ingrese su Api Key");
-//   inputApiKey.value = "el api key que esta en el localstorage ";
+  //   inputApiKey.placeholder("Ingrese su Api Key");
+  //   inputApiKey.value = "el api key que esta en el localstorage ";
 
 
-//   const textInput = document.createElement("p");
-//   textInput.classList.add("text-apikey");
-//   textInput.innerHTML = "Ingrese su Api Key: ";
+  //   const textInput = document.createElement("p");
+  //   textInput.classList.add("text-apikey");
+  //   textInput.innerHTML = "Ingrese su Api Key: ";
 
   const buttonSaveApiKey = document.createElement("button");
   buttonSaveApiKey.setAttribute("data-testid", "button-apiKey");
