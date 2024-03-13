@@ -404,10 +404,9 @@ button[data-testid="button-chats"] {
   box-shadow: 0 1px 0 1px rgba(0, 0, 0, 0.04);
   cursor: pointer;
 }
-.input-apikey {
+/* .input-apikey {
   display: flex;
   align-items: flex-start;
-  /* position: relative; */
   font-size: 0.9em;
   font-family: "Inter", sans-serif;
   color: #444;
@@ -422,8 +421,31 @@ button[data-testid="button-chats"] {
   box-shadow: 0 1px 0 1px rgba(0, 0, 0, 0.04);
   background-color: rgba(246, 235, 218, 1);
   height: 3em;
+} */
+.input-apikey {
+  display: flex;
+  align-items: flex-start;
+  font-size: 0.9em;
+  font-family: "Inter", sans-serif;
+  color: #444;
+  line-height: 1.3;
+  padding: 0.6em 1.4em 0.5em 0.8em;
+  max-width: 100%;
+  width: 32em;
+  box-sizing: border-box;
+  margin: 0 0 10px 0;
+  border: 1.5px solid rgba(112, 78, 78, 1);
+  border-radius: 0.4em;
+  appearance: none;
+  box-shadow: 0 1px 0 1px rgba(0, 0, 0, 0.04);
+  background-color: rgba(246, 235, 218, 1);
+  height: 3em;
+  transition: width 0.3s ease; /* Agrega una transición de 0.3 segundos a la propiedad width */
 }
 
+.input-apikey:hover {
+  width: 20em; /* Cambia el tamaño de la entrada cuando se mueve */
+}
 .buttonCloseApiModal {
   position: relative;
   right: 0;
