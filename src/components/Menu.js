@@ -22,8 +22,8 @@ export const iconChats = () => {
     const headerTitle = document.querySelector(".headerTittle");
     const funcStats = document.querySelector( 'div[class = "functionsContainer"]');
     const itemStats = document.querySelector('div[class = "items-container"]');
-    funcStats.style.filter = "blur(2px)";
-    itemStats.style.filter = "blur(2px)";
+    funcStats.style.filter = "blur(3px)";
+    itemStats.style.filter = "blur(3px)";
     headerTitle.style.visibility = "hidden";
     const boxApiKey = document.createElement("div");
     boxApiKey.classList.add("boxApiKey");
@@ -44,7 +44,9 @@ export const iconChats = () => {
       funcStats.style.filter = "none";
       itemStats.style.filter = "none";
       divIconChats.removeChild(boxApiKey);
-      divIconChats.removeChild(closeButton);
+      // divIconChats.removeChild(closeButton);
+      console.log(divIconChats);
+      console.log(headerTitle);
     });
 
     boxApiKey.appendChild(closeButton);

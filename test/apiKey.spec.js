@@ -1,4 +1,4 @@
-import {setApiKey, getApiKey } from "../src/lib/ApiKey.js";
+import {setApiKey, getApiKey } from "../src/lib/apiKey.js";
 
 describe('getApiKey', () => {
   it('debería devolver el valor de la API Key', () => {
