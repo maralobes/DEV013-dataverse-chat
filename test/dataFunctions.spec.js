@@ -5,7 +5,7 @@ describe("filterBy", () => {
   it("returns `filteredData` according to its range", () => {
     const resultado1 = filteredData(fakeData, "annualVisitors", "firstRange");
     const resultado2 = filteredData(fakeData, "annualVisitors", "secondRange");
-    const resultado3 = filteredData(fakeData, 'annualVisitors', 'thirdRange');
+    const resultado3 = filteredData(fakeData, "annualVisitors", "thirdRange");
     const resultado4 = filteredData(fakeData, "annualVisitors", "fourthRange");
     const resultado5 = filteredData(fakeData, "annualVisitors", "fifthRange");
 
@@ -56,9 +56,7 @@ describe("SortBy", () => {
       {
         id: "greatwallchina",
         name: "Great Wall of China",
-
       },
-
     ];
 
     const orderedArrayAsc = [
@@ -78,7 +76,7 @@ describe("SortBy", () => {
 
     const sortedDataDesc = sortByName(disorderedArray, "name", "desc");
     const sortedDataAsc = sortByName(disorderedArray, "name", "asc");
-    
+
     expect(sortedDataDesc).toEqual(orderedArrayDesc);
     expect(sortedDataAsc).toEqual(orderedArrayAsc);
   });
