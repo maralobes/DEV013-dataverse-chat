@@ -48,6 +48,12 @@ body {
   border: none;
 }
 .statistics {
+  width: 4em;
+  height: 4em;
+  margin: 0.5em;
+}
+
+.iconCircleButton {
   width: 100%;
   display: flex;
   margin: 0.5em;
@@ -71,30 +77,44 @@ body {
   box-shadow: 0 1px 0 1px rgba(0, 0, 0, 0.04);
   cursor: pointer;
 }
-
-.apikey-cont {
-  width: 100%;
+.boxApiKey {
   display: flex;
-  margin: 0.5em;
-  flex-direction: row-reverse;
-  padding: 0 1em 0 0;
+  flex-flow: column;
+  align-items: stretch;
+  gap: 5%;
+  position: relative;
+  margin: 0 10% 0 10%;
+  left: -550%;
+  top: 120%;
+  width: 32em;
+  max-width: 300em;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+  height: 8em;
+  padding: 5%;
+  border-radius: 0.5em;
 }
-.apiKey-button {
-  height: 50px;
+.apikey-cont{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+button[data-testid="button-apiKey"] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9em;
+  font-family: "Inter", sans-serif;
+  color: whitesmoke;
   width: 100%;
-  max-width: 50px;
-  box-sizing: border-box;
-  margin: 0.5em;
-  padding: 0.6em 0 0.6em 0;
-  border: 2px solid rgba(112, 78, 78, 1);
-  border-radius: 50%;
-  background-color: rgba(253, 249, 245, 1);
-  background-image: url(https://github.com/C-LedezmaRodriguez/DEV013-dataverse-chat/blob/main/src/images/statistics-icon.png?raw=true);
-  background-repeat: no-repeat, repeat;
-  background-position: center;
-  background-size: 3.1em auto, 100%;
-  box-shadow: 0 1px 0 1px rgba(0, 0, 0, 0.04);
+  max-width: 6em;
+  padding: 0.6em;
+  border: 1.5px solid rgba(112, 78, 78, 1);
+  border-radius: 1.5em;
+  background-color: rgba(168, 111, 70, 1);
+  box-shadow: 0 2px 0 2px rgba(0, 0.4, 0, 0.08);
   cursor: pointer;
+  /* left: 30px; */
 }
 
 .headerTittle {
@@ -202,7 +222,7 @@ button[data-testid="button-clear"] {
   box-shadow: 0 2px 0 2px rgba(0, 0.4, 0, 0.08);
   cursor: pointer;
 }
-.items-container{
+.items-container {
   margin-bottom: 5%;
 }
 .fList {
@@ -237,7 +257,7 @@ button[data-testid="button-clear"] {
   list-style: none;
   border: 2px solid rgba(112, 78, 78, 1);
   border-radius: 1.6em;
-  width: 45%; 
+  width: 45%;
   margin: 3% auto 5% auto;
 }
 
@@ -258,7 +278,7 @@ button[data-testid="button-clear"] {
   position: relative;
   width: 100%;
   max-width: 100%;
-  background-color: whitesmoke; 
+  background-color: whitesmoke;
   height: 100%;
   border-radius: 1.6em;
 }
@@ -361,4 +381,59 @@ dd {
   background-position: center;
   background-size: 0.8em auto, 100%;
   cursor: pointer;
+}
+.chats {
+  width: 4em;
+  height: 4em;
+  margin: 0.5em;
+}
+button[data-testid="button-chats"] {
+  height: 50px;
+  width: 100%;
+  max-width: 50px;
+  box-sizing: border-box;
+  margin: 0.5em;
+  padding: 0.6em 0 0.6em 0;
+  border: 2px solid rgba(112, 78, 78, 1);
+  border-radius: 50%;
+  background-color: rgba(253, 249, 245, 1);
+  background-image: url(https://github.com/C-LedezmaRodriguez/DEV013-dataverse-chat/blob/main/src/images/chat-icon.png?raw=true);
+  background-repeat: no-repeat, repeat;
+  background-position: center;
+  background-size: 3.1em auto, 100%;
+  box-shadow: 0 1px 0 1px rgba(0, 0, 0, 0.04);
+  cursor: pointer;
+}
+.input-apikey {
+  display: flex;
+  align-items: flex-start;
+  /* position: relative; */
+  font-size: 0.9em;
+  font-family: "Inter", sans-serif;
+  color: #444;
+  line-height: 1.3;
+  padding: 0.6em 1.4em 0.5em 0.8em;
+  width: 34em;
+  box-sizing: border-box;
+  margin: 0 0 10px 0;
+  border: 1.5px solid rgba(112, 78, 78, 1);
+  border-radius: 0.4em;
+  appearance: none;
+  box-shadow: 0 1px 0 1px rgba(0, 0, 0, 0.04);
+  background-color: rgba(246, 235, 218, 1);
+  height: 3em;
+}
+
+.buttonCloseApiModal {
+  position: relative;
+  right: 0;
+  width: 50px;
+  height: 20%;
+  border: 1.5px solid rgba(112, 78, 78, 1);
+  border-radius: 1.5em;
+  cursor: pointer;
+  display: flex;
+  padding: 1%;
+  opacity: 0.9;
+  background-color: whitesmoke;
 }
