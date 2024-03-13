@@ -15,25 +15,56 @@ export const iconChats = () => {
   const divIconChats = document.createElement("div");
   divIconChats.classList.add("chats");
   const buttonChats = document.createElement("button");
-  buttonChats.classList.add("data-testid", "button-chats");
-  buttonChats.innerHTML = "Chats";
-  divIconChats.appendChild(buttonChats);
+  buttonChats.setAttribute("data-testid", "button-chats");
+  // buttonChats.innerHTML = "Chats";
 
   buttonChats.addEventListener("click", function popupApiKey() {
+    const headerTitle = document.querySelector(".headerTittle");
+    const funcStats = document.querySelector( 'div[class = "functionsContainer"]');
+    const itemStats = document.querySelector('div[class = "items-container"]');
+    funcStats.style.filter = "blur(2px)";
+    itemStats.style.filter = "blur(2px)";
+    headerTitle.style.visibility = "hidden";
+    const boxApiKey = document.createElement("div");
+    boxApiKey.classList.add("boxApiKey");
     const apiKeyPopup = ApiKeyModal();
-    divIconChats.append(apiKeyPopup);
+
+    const closeButton = document.createElement("button");
+    closeButton.className = "buttonCloseApiModal";
+    closeButton.textContent = "Close";
+
+    divIconChats.append(boxApiKey);
+    boxApiKey.appendChild(apiKeyPopup);
+
+    console.log(boxApiKey);
+
+    closeButton.addEventListener("click", function closePopup() {
+      const headerTitle = document.querySelector(".headerTittle");
+      headerTitle.style.visibility = "visible";
+      const funcStats = document.querySelector( 'div[class = "functionsContainer"]');
+      const itemStats = document.querySelector('div[class = "items-container"]');
+      funcStats.style.filter = "none";
+      itemStats.style.filter = "none";
+      divIconChats.removeChild(boxApiKey);
+      divIconChats.removeChild(closeButton);
+      console.log(divIconChats);
+      console.log(headerTitle);
+    });
+
+    boxApiKey.appendChild(closeButton);
   });
+
+  divIconChats.appendChild(buttonChats);
   return divIconChats;
 };
+
 export const iconStatistics = () => {
   const divStatistics = document.createElement("div");
   divStatistics.classList.add("statistics");
   const buttonStats = document.createElement("button");
   buttonStats.classList.add("statistics-button");
   buttonStats.addEventListener("click", function popupStats() {
-    const funcStats = document.querySelector(
-      'div[class = "functionsContainer"]'
-    );
+    const funcStats = document.querySelector( 'div[class = "functionsContainer"]');
     const itemStats = document.querySelector('div[class = "items-container"]');
     const headStats = document.querySelector('header[class = "headerTittle"]');
     funcStats.style.filter = "blur(2px)";
@@ -48,7 +79,7 @@ export const iconStatistics = () => {
     buttonCloseStats.className = "buttonCloseStats";
     popupStatsWonder.append(buttonCloseStats);
     divStatistics.append(popupStatsWonder);
-    
+
     popupStatsWonder.addEventListener("click", function closePopup() {
       const funcStats = document.querySelector(
         'div[class = "functionsContainer"]'
