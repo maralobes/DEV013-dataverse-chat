@@ -1,4 +1,4 @@
-import { iconHome } from "../components/menu.js";
+import { iconHome } from "../components/Menu.js";
 import data from "../data/dataset.js";
 import { Footer } from "../components/footer.js";
 
