@@ -4,9 +4,11 @@ TODO:
 2.- Pasar "root element" a router.
 3.- Invocar el router para renderizar la vista correcta.
 */
-import {Home} from './views/Home.js';
-import {About} from './views/About.js';
-import {Error} from './views/Error.js';
+import { Home } from './views/Home.js';
+import { About } from './views/About.js';
+import { Error } from './views/Error.js';
+import { IndividualChat } from './views/IndividualChat.js';
+
 // import Example from './views/Example';
 // ... import other views
 import { setRootEl, setRoutes, onURLChange } from './router.js';
@@ -16,6 +18,7 @@ const routes = {
   '/': Home,
   '/about': About,
   '/error': Error,
+  '/individualChat': IndividualChat,
 };
   
 const viewContainer = document.getElementById("root")

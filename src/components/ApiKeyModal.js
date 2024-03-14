@@ -8,11 +8,7 @@ export const ApiKeyModal = () => {
   inputApiKey.classList.add("input-apikey");
   inputApiKey.setAttribute("type", "text");
   inputApiKey.setAttribute("placeholder", "Ingrese su Api Key");
-  //   inputApiKey.value = "el api key que esta en el localstorage ";
-
-  //   const textInput = document.createElement("p");
-  //   textInput.classList.add("text-apikey");
-  //   textInput.innerHTML = "Ingrese su Api Key: ";
+  inputApiKey.value = "";
 
   const buttonSaveApiKey = document.createElement("button");
   buttonSaveApiKey.setAttribute("data-testid", "button-apiKey");

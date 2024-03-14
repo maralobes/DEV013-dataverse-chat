@@ -1,6 +1,6 @@
 
 // Importa la función para obtener la API KEY desde apiKey.js
-import { getApiKey } from "./apiStorage.js";
+import { getApiKey } from "./ApiKey.js";
 
 const getApi = getApiKey();
 const url = "https://api.openai.com/v1/chat/completions";
@@ -12,28 +12,27 @@ export const communicateWithOpenAI = async (archiWorks, userInputQuestion) => {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${getApi}`,
+      "Authorization": `Bearer ${getApi}`,
     },
     body: JSON.stringify({
       model: "gpt-3.5-turbo",
       messages: [
         {
           role: "system",
-          content: `You are an architectonic work, ${archiWorks}, give short answers`,
+          content: `You are an architect and you have the following JSON with all the information you know `,
+        },
+        {
+          role: "system",
+          content: `${JSON.stringify(archiWorks)}`,
         },
         {
           role: "user",
           content: userInputQuestion,
         },
       ],
-      max_tokens: 10,
+      // max_tokens: 10,
     }),
   });
-
-  try {
-    
-    return response;
-  } catch (error) {
-    return(error);
-  }
+    // console.log(response.choices[0]);
+    return await response.json();
 };
