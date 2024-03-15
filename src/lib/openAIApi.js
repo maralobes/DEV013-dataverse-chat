@@ -20,14 +20,14 @@ export const communicateWithOpenAI = async (archiWorks, userInputQuestion) => {
       messages: [
         {
           role: "system",
-          content: `You are an architectonic work: ${archiWorks}, give short answers`,
+          content: `You are an architectonic work, ${archiWorks}, give short answers`,
         },
         {
           role: "user",
           content: userInputQuestion,
         },
       ],
-      max_tokens: 100,
+      max_tokens: 10,
     }),
   });
 
@@ -37,9 +37,8 @@ export const communicateWithOpenAI = async (archiWorks, userInputQuestion) => {
 
   try {
     return await response.json();
-
   } catch (error) {
-    console.error("Error:",error.message)
+    console.error("Error:", error.message);
     throw new Error("Error en la respuesta" + error.message);
   }
 };
