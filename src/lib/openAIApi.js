@@ -1,3 +1,4 @@
+// src/lib/openAIApi.js
 
 // Importa la función para obtener la API KEY desde apiKey.js
 import { getApiKey } from "./apiStorage.js";
@@ -19,21 +20,26 @@ export const communicateWithOpenAI = async (archiWorks, userInputQuestion) => {
       messages: [
         {
           role: "system",
-          content: `You are an architectonic work, ${archiWorks}, give short answers`,
+          content: `You are an architectonic work: ${archiWorks}, give short answers`,
         },
         {
           role: "user",
           content: userInputQuestion,
         },
       ],
-      max_tokens: 10,
+      max_tokens: 100,
     }),
   });
 
+  if (!archiWorks || !userInputQuestion) {
+    throw new Error("Error");
+  }
+
   try {
-    
-    return response;
+    return await response.json();
+
   } catch (error) {
-    return(error);
+    console.error("Error:",error.message)
+    throw new Error("Error en la respuesta" + error.message);
   }
 };
