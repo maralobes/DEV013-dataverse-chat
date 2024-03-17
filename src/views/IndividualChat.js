@@ -2,6 +2,7 @@ import { communicateWithOpenAI } from "../lib/openAIApi.js";
 import dataset from "../data/dataset.js";
 
 export const IndividualChat = () => {
+// const infoItem = dataset.find((item) => item.id === id);
 const individualChatContainer = document.createElement('div');
 individualChatContainer.classList.add('ind-chat');
 const textChat = document.createElement('div');
