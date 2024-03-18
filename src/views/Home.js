@@ -3,6 +3,7 @@ import { sortByName, filteredData } from "../lib/dataFunctions.js";
 import data from "../data/dataset.js";
 import { Footer } from "./../components/footer.js";
 import { navigateTo } from "../router.js";
+import { ApiKeyModal } from "../components/ApiKeyModal.js";
 
 export const Home = () => {
   const homeContainer = document.createElement("div");
@@ -47,8 +48,37 @@ export const Home = () => {
 
       ulList.appendChild(listItem);
       listItem.appendChild(archiWork);
-      listItem.addEventListener("click", () =>navigateTo("/about", { id: item.id })
-      );
+
+      function openPopup() {
+        const boxApiKey = document.createElement("div");
+        boxApiKey.classList.add("boxAbtApiKey");
+
+        const aboutInfo = document.querySelector(".dataAbout");
+        aboutInfo.style.opacity = "0.2";
+
+        const apiKeyPopup = ApiKeyModal();
+        console.log(boxApiKey);
+
+        const closeButton = document.createElement("button");
+        closeButton.className = "buttonCloseApiModal";
+        closeButton.textContent = "Close";
+
+        const abtChatWind = document.querySelector(".aboutInfo");
+        abtChatWind.appendChild(boxApiKey);
+        boxApiKey.appendChild(apiKeyPopup);
+        boxApiKey.appendChild(closeButton);
+    
+        closeButton.addEventListener("click", function closePopup() {
+          const aboutInfo = document.querySelector(".dataAbout");
+          aboutInfo.style.opacity = "1";
+          abtChatWind.removeChild(boxApiKey);
+        });
+      }
+
+      listItem.addEventListener("click", async () => {
+        await navigateTo("/about", { id: item.id }),
+        openPopup();
+      });
 
       archiWork.append(imageWork, nameWork, nameText, factsWork);
       factsWork.append(locationWork, locationText);
@@ -128,7 +158,7 @@ export const Home = () => {
   const buttonClear = document.createElement("button");
   buttonClear.setAttribute("data-testid", "button-clear");
   buttonClear.innerHTML = "Clear";
-  
+
   buttonClear.addEventListener("click", function clear() {
     selectFilter.selectedIndex = 0;
     selectSort.selectedIndex = 0;

@@ -1,4 +1,4 @@
-import { iconHome, iconStatistics, iconChats } from "./Menu.js";
+import { iconHome, iconStatistics, iconGrpChat } from "./Menu.js";
 export const Header = () => {
   const headerContainer = document.createElement("div");
   headerContainer.classList.add("headerContainer");
@@ -11,7 +11,7 @@ export const Header = () => {
   header.innerHTML = `   
     <p>Exploring the wonders of our planet, one place at a time</p>
     `;
-  iconCircle.append(iconStatistics(), iconChats());
+  iconCircle.append(iconStatistics(), iconGrpChat());
   iconContainer.append(iconHome(), iconCircle);
   headerContainer.append(iconContainer, header);
 

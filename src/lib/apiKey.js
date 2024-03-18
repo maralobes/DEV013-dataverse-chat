@@ -8,3 +8,8 @@ export const setApiKey = (key) => {
   // Implementa el código para guardar la API KEY en Local Storage
   localStorage.setItem("api-key", key);
 };
+
+export const removeApiKey = () => {
+  const removeApiKey = localStorage.removeItem("api-key");
+  return removeApiKey;
+};
