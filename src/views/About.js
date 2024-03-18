@@ -77,7 +77,7 @@ export const About = ({ id }) => {
     if (!userInput.value) {
       alert("Please, type your message");
     } else {
-      const response = await communicateWithOpenAI(dataset, userInput.value);
+      const response = await communicateWithOpenAI(archiWorks, userInput.value);
       console.log(response);
       systemResponse.innerHTML = response.choices[0].message.content;
     }
