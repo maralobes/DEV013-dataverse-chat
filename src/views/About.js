@@ -1,4 +1,4 @@
-import { iconHome } from "../components/menu.js";
+import { iconHome } from "../components/Menu.js";
 import { Footer } from "../components/footer.js";
 import { communicateWithOpenAI } from "../lib/openAIApi.js";
 import dataset from "../data/dataset.js";
@@ -41,8 +41,14 @@ export const About = ({ id }) => {
   imageCont.innerHTML = archiWorks.imageUrl;
   imageCont.setAttribute("id", "imageChat");
 
+  const chatMessages = document.createElement("div");
+  chatMessages.classList.add("chat-messages");
+
   const systemResponse = document.createElement("p");
   systemResponse.classList.add("system-output");
+
+  const userMsg = document.createElement("div");
+  userMsg.classList.add("user-msg");
 
   const userChat = document.createElement("div");
   userChat.classList.add("user-chat");
@@ -60,17 +66,30 @@ export const About = ({ id }) => {
     if (!userInput.value) {
       alert("Please, type your message");
     } else {
-      const response = await communicateWithOpenAI(dataset, userInput.value);
-      console.log(response);
+      const response = await communicateWithOpenAI(archiWorks, userInput.value);
+      // console.log(response);
       systemResponse.innerHTML = response.choices[0].message.content;
+      
+      const newUserMsg = document.createElement('div');
+      newUserMsg.classList.add("user-msg");
+      newUserMsg.textContent = userInput.value;
+
+      const newSystemResponse = document.createElement('p');
+      newSystemResponse.classList.add("system-output");
+      newSystemResponse.innerHTML = response.choices[0].message.content;
+ 
+      chatMessages.appendChild(newUserMsg);
+      chatMessages.appendChild(newSystemResponse)
+
+      userInput.value = "";
     }
   });
-
+  // chatMessages.append(systemResponse, userMsg);
   userChat.append(userInput, sendButton);
-  textChat.append(imageCont, systemResponse, userChat);
+  textChat.append(imageCont, chatMessages, userChat);
+
+
   individualChatContainer.append(textChat);
-
-
 
   iconHomeContainer.append(iconHome());
   dataAbout.append(listItem, individualChatContainer);

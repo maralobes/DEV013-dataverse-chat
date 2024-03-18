@@ -20,12 +20,12 @@ export const communicateWithOpenAI = async (archiWorks, userInputQuestion) => {
       messages: [
         {
           role: "system",
-          content: `You are an architect and you have the following JSON with all the information you know `,
+          content: `You are an${JSON.stringify(archiWorks)} and you have to give short answers`,
         },
-        {
-          role: "system",
-          content: `${JSON.stringify(archiWorks)}`,
-        },
+        // {
+        //   role: "system",
+        //   content: `${JSON.stringify(archiWorks)}`,
+        // },
         {
           role: "user",
           content: userInputQuestion,

@@ -46,10 +46,11 @@ export const iconGrpChat = () => {
     const closeButton = document.createElement("button");
     closeButton.className = "buttonCloseApiModal";
     closeButton.textContent = "Close";
-    const grpChatWind = document.querySelector(".windowGrpChat");
-    grpChatWind.appendChild(boxApiKey);
-    boxApiKey.appendChild(apiKeyPopup);
-    boxApiKey.appendChild(closeButton);
+    const grpChatWind = document.querySelector(".grpChatCont");
+    console.log(grpChatWind);
+    grpChatWind.append(boxApiKey);
+    boxApiKey.append(apiKeyPopup);
+    boxApiKey.append(closeButton);
 
     closeButton.addEventListener("click", function closePopup() {
       // const headerTitle = document.querySelector(".headerTittle");
