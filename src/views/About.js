@@ -1,5 +1,4 @@
-import { iconHome } from "../components/Menu.js";
-// import data from "../data/dataset.js";
+import { iconHome } from "../components/menu.js";
 import { Footer } from "../components/footer.js";
 import { communicateWithOpenAI } from "../lib/openAIApi.js";
 import dataset from "../data/dataset.js";
