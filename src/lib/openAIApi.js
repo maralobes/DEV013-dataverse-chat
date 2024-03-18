@@ -1,7 +1,7 @@
 // src/lib/openAIApi.js
 
 // Importa la función para obtener la API KEY desde apiKey.js
-import { getApiKey } from "./ApiKey.js";
+import { getApiKey } from "./apiKey.js";
 
 const getApi = getApiKey();
 const url = "https://api.openai.com/v1/chat/completions";
