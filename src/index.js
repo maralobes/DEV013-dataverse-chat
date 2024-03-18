@@ -7,7 +7,6 @@ TODO:
 import { Home } from './views/Home.js';
 import { About } from './views/About.js';
 import { Error } from './views/Error.js';
-import { IndividualChat } from './views/IndividualChat.js';
 import { GroupChat } from './views/GroupChat.js';
 
 // import Example from './views/Example';
@@ -19,7 +18,6 @@ const routes = {
   '/': Home,
   '/about': About,
   '/error': Error,
-  '/individualChat': IndividualChat,
   '/groupChat': GroupChat,
 };
   

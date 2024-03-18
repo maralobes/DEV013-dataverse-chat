@@ -1,4 +1,4 @@
-import { setApiKey } from "../lib/apiKey.js";
+import { setApiKey, removeApiKey } from "../lib/apiKey.js";
 
 export const ApiKeyModal = () => {
   const apiKeyContainer = document.createElement("div");
@@ -12,12 +12,22 @@ export const ApiKeyModal = () => {
 
   const buttonSaveApiKey = document.createElement("button");
   buttonSaveApiKey.setAttribute("data-testid", "button-apiKey");
-  buttonSaveApiKey.classList.add("apiKey-button")
+  buttonSaveApiKey.classList.add("apiKey-button");
   buttonSaveApiKey.innerHTML = "Save";
-  buttonSaveApiKey.addEventListener("click", function(){
-    const myinput = document.querySelector('input[class="input-apikey"]');
-    setApiKey(myinput.value);
-  });
+
+  const btnApiKey = () => {
+    const myinput = document.querySelector(".input-apikey");
+    const apiKeyValue = myinput.value;
+    if (buttonSaveApiKey.innerHTML === "Save") {
+      setApiKey(apiKeyValue);
+      buttonSaveApiKey.innerHTML = "Delete";
+    } else {
+      removeApiKey(apiKeyValue);
+      buttonSaveApiKey.innerHTML = "Save";
+      inputApiKey.value = "";
+    }
+  };
+  buttonSaveApiKey.addEventListener("click", btnApiKey);
 
   apiKeyContainer.append(inputApiKey, buttonSaveApiKey);
   return apiKeyContainer;
