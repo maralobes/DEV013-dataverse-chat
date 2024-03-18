@@ -10,49 +10,118 @@ export const iconHome = () => {
   buttonHome.addEventListener("click", () => navigateTo("/", {}));
   return buttonHome;
 };
+// export const indChat = () => {
+//   const indIconChats = document.createElement("div");
+//   indIconChats.classList.add("ind-chat");
+//   const btnIndChat = document.createElement("button");
+//   btnIndChat.setAttribute("data-testid", "btn-ind-chat");
+//   btnIndChat.innerHTML = "Individual Chat";
+//   indIconChats.append(btnIndChat);
+//   btnIndChat.addEventListener("click", () => navigateTo("/individualChat", {}));
+//   return indIconChats;
+// };
+// export const grpChat = () => {
+//   const groupIconChats = document.createElement("div");
+//   groupIconChats.classList.add("grp-chat");
+//   const btnGrpChat = document.createElement("button");
+//   btnGrpChat.setAttribute("data-testid", "btn-grp-chats");
 
-export const iconChats = () => {
+//   groupIconChats.append(btnGrpChat);
+//   btnGrpChat.addEventListener("click", () => navigateTo("/groupChat", {}));
+//   return groupIconChats;
+// };
+export const iconGrpChat = () => {
   const divIconChats = document.createElement("div");
   divIconChats.classList.add("chats");
+
   const buttonChats = document.createElement("button");
   buttonChats.setAttribute("data-testid", "button-chats");
-  // buttonChats.innerHTML = "Chats";
+  buttonChats.setAttribute("title", "Group Chat");
 
-  buttonChats.addEventListener("click", function popupApiKey() {
-    const headerTitle = document.querySelector(".headerTittle");
-    const funcStats = document.querySelector( 'div[class = "functionsContainer"]');
-    const itemStats = document.querySelector('div[class = "items-container"]');
-    funcStats.style.filter = "blur(2px)";
-    itemStats.style.filter = "blur(2px)";
-    headerTitle.style.visibility = "hidden";
+  function openPopup() {
     const boxApiKey = document.createElement("div");
     boxApiKey.classList.add("boxApiKey");
     const apiKeyPopup = ApiKeyModal();
-
+    console.log(boxApiKey);
     const closeButton = document.createElement("button");
     closeButton.className = "buttonCloseApiModal";
     closeButton.textContent = "Close";
-
-    divIconChats.append(boxApiKey);
+    const grpChatWind = document.querySelector(".windowGrpChat");
+    grpChatWind.appendChild(boxApiKey);
     boxApiKey.appendChild(apiKeyPopup);
+    boxApiKey.appendChild(closeButton);
 
     closeButton.addEventListener("click", function closePopup() {
-      const headerTitle = document.querySelector(".headerTittle");
-      headerTitle.style.visibility = "visible";
-      const funcStats = document.querySelector( 'div[class = "functionsContainer"]');
-      const itemStats = document.querySelector('div[class = "items-container"]');
-      funcStats.style.filter = "none";
-      itemStats.style.filter = "none";
-      divIconChats.removeChild(boxApiKey);
-      divIconChats.removeChild(closeButton);
+      // const headerTitle = document.querySelector(".headerTittle");
+      // headerTitle.style.visibility = "visible";
+      // const funcStats = document.querySelector(
+      //   'div[class = "functionsContainer"]'
+      // );
+      // const itemStats = document.querySelector(
+      //   'div[class = "items-container"]'
+      // );
+      // funcStats.style.filter = "none";
+      // itemStats.style.filter = "none";
+      grpChatWind.removeChild(boxApiKey);
+      // divIconChats.removeChild(closeButton);
     });
-
-    boxApiKey.appendChild(closeButton);
+  }
+  buttonChats.addEventListener("click", async() => {
+    await navigateTo("/groupChat", {});
+    openPopup();
   });
 
   divIconChats.appendChild(buttonChats);
   return divIconChats;
 };
+// export const iconChats = () => {
+//   const divIconChats = document.createElement("div");
+//   divIconChats.classList.add("grp-chats");
+//   const buttonChats = document.createElement("button");
+//   buttonChats.setAttribute("data-testid", "button-chats");
+//   buttonChats.innerHTML = "Chats";
+
+//   buttonChats.addEventListener("click", function popupApiKey() {
+//     const headerTitle = document.querySelector(".headerTittle");
+//     const funcStats = document.querySelector('div[class = "functionsContainer"]');
+//     const itemStats = document.querySelector('div[class = "items-container"]');
+//     funcStats.style.filter = "blur(3px)";
+//     itemStats.style.filter = "blur(3px)";
+//     headerTitle.style.visibility = "hidden";
+//     const boxApiKey = document.createElement("div");
+//     boxApiKey.classList.add("boxApiKey");
+//     const apiKeyPopup = ApiKeyModal();
+
+//     const closeButton = document.createElement("button");
+//     closeButton.className = "buttonCloseApiModal";
+//     closeButton.textContent = "Close";
+
+//     divIconChats.append(boxApiKey);
+//     boxApiKey.appendChild(apiKeyPopup);
+
+//     closeButton.addEventListener("click", function closePopup() {
+//       const headerTitle = document.querySelector(".headerTittle");
+//       headerTitle.style.visibility = "visible";
+//       const funcStats = document.querySelector(
+//         'div[class = "functionsContainer"]'
+//       );
+//       const itemStats = document.querySelector(
+//         'div[class = "items-container"]'
+//       );
+//       funcStats.style.filter = "none";
+//       itemStats.style.filter = "none";
+//       divIconChats.removeChild(boxApiKey);
+//       // divIconChats.removeChild(closeButton);
+//       console.log(divIconChats);
+//       console.log(headerTitle);
+//     });
+
+//     boxApiKey.appendChild(closeButton);
+//   });
+
+//   divIconChats.appendChild(buttonChats);
+//   return divIconChats;
+// };
 
 export const iconStatistics = () => {
   const divStatistics = document.createElement("div");
@@ -60,7 +129,9 @@ export const iconStatistics = () => {
   const buttonStats = document.createElement("button");
   buttonStats.classList.add("statistics-button");
   buttonStats.addEventListener("click", function popupStats() {
-    const funcStats = document.querySelector( 'div[class = "functionsContainer"]');
+    const funcStats = document.querySelector(
+      'div[class = "functionsContainer"]'
+    );
     const itemStats = document.querySelector('div[class = "items-container"]');
     const headStats = document.querySelector('header[class = "headerTittle"]');
     funcStats.style.filter = "blur(2px)";
