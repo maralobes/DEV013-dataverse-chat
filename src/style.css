@@ -718,7 +718,7 @@ input.input-request {
   box-shadow: 0 2px 0 2px rgba(0, 0.4, 0, 0.08);
   cursor: pointer;
 }
-.grpChatCont {
+/* .grpChatCont {
   width: 100%;
   height: 100vh;
 }
@@ -727,9 +727,9 @@ input.input-request {
   width: 100%;
   /* height: 100%; */
   /* align-content: center; */
-  justify-content: center;
+  /* justify-content: center; */
   /* align-items: center; */
-  /* flex-direction: row; */
+  /* flex-direction: row; 
   margin: auto;
 }
 .grp-chat {
@@ -738,6 +738,7 @@ input.input-request {
   background: aliceblue;
   display: flex;
   align-items: flex-end;
+
 }
 
 .error-container {
@@ -761,7 +762,7 @@ input.input-request {
   max-width: 100%;
   height: 100vh;
   opacity: 0.4;
-} 
+}
 
 .text-error {
   color: black;
@@ -795,6 +796,66 @@ input.input-request {
   cursor: pointer;
 }
 
-.system-output {
-  z-index: 1;
+.grpChatCont {
+  width: 100%;
+  /* max-width: 600px; */
+  /* margin: 0 auto; */
+  /* padding: 20px; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+}
+.boxGrpChat {
+    /* border: 1px solid #ccc; */
+    border-radius: 8px;
+    overflow: hidden;
+    height: 100%;
+    /* width: 50%; */
+}
+
+/* Estilos para el contenedor de mensajes */
+.grp-chat {
+  background-color: #f9f9f9;
+  padding: 10px;
+}
+
+/* Estilos para los mensajes del chat */
+.text-chat-grp {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Estilos para los mensajes del sistema */
+.system-output-grp {
+  background-color: #e0e0e0;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+.chat-messages-grp {
+  height: 300px;
+}
+
+/* Estilos para los mensajes del usuario */
+.user-chat-grp {
+  margin-top: 10px;
+}
+
+.input-request-grp {
+  width: calc(100% - 80px);
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.send-button-grp {
+  width: 60px;
+  padding: 8px;
+  margin-left: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }

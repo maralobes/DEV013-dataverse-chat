@@ -85,13 +85,13 @@ export const About = ({ id }) => {
     }
   });
   // chatMessages.append(systemResponse, userMsg);
+  iconHomeContainer.append(iconHome());
+  
   userChat.append(userInput, sendButton);
   textChat.append(imageCont, chatMessages, userChat);
 
-
   individualChatContainer.append(textChat);
 
-  iconHomeContainer.append(iconHome());
   dataAbout.append(listItem, individualChatContainer);
   aboutInfo.append(iconHomeContainer, dataAbout, Footer());
   return aboutInfo;
