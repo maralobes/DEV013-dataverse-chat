@@ -17,9 +17,9 @@ export const Error = () => {
         </div>
       </div>
       `;
-    const buttonHome = viewEl.querySelector("#error-btn");
-    console.log(buttonHome);
-    buttonHome.addEventListener("click", () => navigateTo("/", {}));
+  const buttonHome = viewEl.querySelector("#error-btn");
+  console.log(buttonHome);
+  buttonHome.addEventListener("click", () => navigateTo("/", {}));
 
   return viewEl;
 };
