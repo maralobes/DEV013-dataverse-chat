@@ -43,56 +43,21 @@ export const GroupChat = () => {
     if (!userInput.value) {
       alert("Please, type your message");
     } else {
-      for (const item of dataset) {
-        const response = await communicateWithOpenAI(item, userInput.value);
-        if (response && response.message) {
-          const newSystemResponse = document.createElement("p");
-          newSystemResponse.classList.add("system-output-grp");
-          newSystemResponse.innerHTML = response.message.content;
-          console.log(newSystemResponse);
-          chatMessages.append(newSystemResponse);
-        } else {
-          console.error("No es respuesta válida");
-        }
-      }
       const newUserMsg = document.createElement("div");
       newUserMsg.classList.add("user-msg-grp");
       newUserMsg.textContent = userInputValue;
       chatMessages.append(newUserMsg);
-
+      for (const item of dataset) {
+        const response = await communicateWithOpenAI(item, userInput.value);
+        const newSystemResponse = document.createElement("p");
+        newSystemResponse.classList.add("system-output-grp");
+        newSystemResponse.innerHTML = response.choices[0].message.content;
+        console.log(newSystemResponse);
+        chatMessages.append(newSystemResponse);
+      }
       userInput.value = "";
     }
   });
-
-  //   sendButton.addEventListener("click", async () => {
-  //     if (!userInput.value) {
-  //       alert("Please, type your message");
-  //     } else {
-  //       const dataArchiworksGrp = dataset.forEach(({ id }) => {
-  //         const infoItem = dataset.find((item) => item.id === id);
-  //         return infoItem;
-  //       });
-  //       const response = await communicateWithOpenAI(
-  //         dataArchiworksGrp,
-  //         userInput.value
-  //       );
-  //       // console.log(response);
-  //       systemResponse.innerHTML = response.message.content;
-
-  //       const newUserMsg = document.createElement("div");
-  //       newUserMsg.classList.add("user-msg-grp");
-  //       newUserMsg.textContent = userInput.value;
-
-  //       const newSystemResponse = document.createElement("p");
-  //       newSystemResponse.classList.add("system-output-grp");
-  //       newSystemResponse.innerHTML = response.message.content;
-
-  //       chatMessages.appendChild(newUserMsg);
-  //       chatMessages.appendChild(newSystemResponse);
-
-  //       userInput.value = "";
-  //     }
-  //   });
 
   iconHomeContainer.append(iconHome());
 
