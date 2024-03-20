@@ -2,6 +2,7 @@ import { computeStats } from "../lib/dataFunctions.js";
 import { navigateTo } from "../router.js";
 import data from "./../data/dataset.js";
 import { ApiKeyModal } from "./ApiKeyModal.js";
+import { getApiKey } from "../lib/ApiKey.js";
 
 export const iconHome = () => {
   const buttonHome = document.createElement("button");
@@ -67,9 +68,13 @@ export const iconGrpChat = () => {
       // divIconChats.removeChild(closeButton);
     });
   }
-  buttonChats.addEventListener("click", async() => {
-    await navigateTo("/groupChat", {});
-    openPopup();
+  buttonChats.addEventListener("click", async () => {
+    if (getApiKey()) {
+      await navigateTo("/groupChat", {});
+    } else {
+      await navigateTo("/groupChat", {});
+      openPopup();
+    }
   });
 
   divIconChats.appendChild(buttonChats);
