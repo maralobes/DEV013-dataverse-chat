@@ -4,6 +4,7 @@ import data from "../data/dataset.js";
 import { Footer } from "./../components/footer.js";
 import { navigateTo } from "../router.js";
 import { ApiKeyModal } from "../components/ApiKeyModal.js";
+import { getApiKey } from "../lib/ApiKey.js";
 
 export const Home = () => {
   const homeContainer = document.createElement("div");
@@ -67,7 +68,7 @@ export const Home = () => {
         abtChatWind.appendChild(boxApiKey);
         boxApiKey.appendChild(apiKeyPopup);
         boxApiKey.appendChild(closeButton);
-    
+
         closeButton.addEventListener("click", function closePopup() {
           const aboutInfo = document.querySelector(".dataAbout");
           aboutInfo.style.opacity = "1";
@@ -76,8 +77,12 @@ export const Home = () => {
       }
 
       listItem.addEventListener("click", async () => {
-        await navigateTo("/about", { id: item.id }),
-        openPopup();
+        if (getApiKey()) {
+          await navigateTo("/about", { id: item.id });
+        } else {
+          await navigateTo("/about", { id: item.id }), 
+          openPopup();
+        }
       });
 
       archiWork.append(imageWork, nameWork, nameText, factsWork);

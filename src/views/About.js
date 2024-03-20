@@ -16,14 +16,14 @@ export const About = ({ id }) => {
   listItem.setAttribute("itemscope", "");
   listItem.setAttribute("itemtype", "architectonics-works");
   listItem.innerHTML = `
-      <dl itemscope="" itemtype="items">
+      <dl class="headerChat" itemscope="" itemtype="items">
         <dt style="display: none;">id:</dt><dd style="display: none;" itemprop="id">${archiWorks.id}</dd>
         <img src=${archiWorks.imageUrl} alt=${archiWorks.name} id="imageAbout">
         <div class="contentAbout">
-          <dt>Nombre:</dt><dd id="nameAbout" itemprop="name">${archiWorks.name}</dd>
-          <dt>Description:</dt><dd itemprop="description">${archiWorks.description}</dd>
-          <dl itemscope="" itemtype="facts">
-            <dt>Location:</dt><dd id="locationAbout" itemprop="location">${archiWorks.facts.location}</dd>
+          <dt></dt><dd id="nameAbout" itemprop="name">${archiWorks.name}</dd>
+          <dt></dt><dd itemprop="shortDescription">${archiWorks.shortDescription}</dd>
+          <dl itemscope="" itemtype="facts" style="display: none;">
+            <dt style="display: none;"></dt><dd id="locationAbout" itemprop="location">${archiWorks.facts.location}</dd>
           </dl>
         </div>
       </dl>
@@ -44,12 +44,6 @@ export const About = ({ id }) => {
   const chatMessages = document.createElement("div");
   chatMessages.classList.add("chat-messages");
 
-  const systemResponse = document.createElement("p");
-  systemResponse.classList.add("system-output");
-
-  const userMsg = document.createElement("div");
-  userMsg.classList.add("user-msg");
-
   const userChat = document.createElement("div");
   userChat.classList.add("user-chat");
 
@@ -63,23 +57,29 @@ export const About = ({ id }) => {
   // const message = document.querySelector('.input-request');
 
   sendButton.addEventListener("click", async () => {
+    chatMessages.scrollTop = chatMessages.scrollHeight - chatMessages.clientHeight;
     if (!userInput.value) {
       alert("Please, type your message");
     } else {
       const response = await communicateWithOpenAI(archiWorks, userInput.value);
-      // console.log(response);
-      systemResponse.innerHTML = response.choices[0].message.content;
       
-      const newUserMsg = document.createElement('div');
-      newUserMsg.classList.add("user-msg");
-      newUserMsg.textContent = userInput.value;
+      const userMsgCont = document.createElement('div');
+      userMsgCont.classList.add("user-msg-cont")
+      const userMsg = document.createElement('p');
+      userMsg.classList.add("user-msg");
+      userMsg.textContent = userInput.value;
 
-      const newSystemResponse = document.createElement('p');
-      newSystemResponse.classList.add("system-output");
-      newSystemResponse.innerHTML = response.choices[0].message.content;
+      const sysRspnCont = document.createElement('div');
+      sysRspnCont.classList.add("system-output-cont")
+      const systemResponse = document.createElement('p');
+      systemResponse.classList.add("system-output");
+      systemResponse.innerHTML = response.choices[0].message.content;
+
+      userMsgCont.appendChild(userMsg);
+      sysRspnCont.appendChild(systemResponse);
  
-      chatMessages.appendChild(newUserMsg);
-      chatMessages.appendChild(newSystemResponse)
+      chatMessages.appendChild(userMsgCont);
+      chatMessages.appendChild(sysRspnCont);
 
       userInput.value = "";
     }
@@ -88,9 +88,9 @@ export const About = ({ id }) => {
   iconHomeContainer.append(iconHome());
   
   userChat.append(userInput, sendButton);
-  textChat.append(imageCont, chatMessages, userChat);
+  textChat.append(imageCont, chatMessages);
 
-  individualChatContainer.append(textChat);
+  individualChatContainer.append(textChat,userChat);
 
   dataAbout.append(listItem, individualChatContainer);
   aboutInfo.append(iconHomeContainer, dataAbout, Footer());
