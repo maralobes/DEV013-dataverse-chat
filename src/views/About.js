@@ -67,7 +67,6 @@ export const About = ({ id }) => {
       alert("Please, type your message");
     } else {
       const response = await communicateWithOpenAI(archiWorks, userInput.value);
-      // console.log(response);
       systemResponse.innerHTML = response.choices[0].message.content;
       
       const newUserMsg = document.createElement('div');
