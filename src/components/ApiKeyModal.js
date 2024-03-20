@@ -3,7 +3,7 @@ import { setApiKey, removeApiKey } from "../lib/ApiKey.js";
 export const ApiKeyModal = () => {
   const apiKeyContainer = document.createElement("div");
   apiKeyContainer.classList.add("apikey-cont");
-  
+
   const inputApiKey = document.createElement("input");
   inputApiKey.classList.add("input-apikey");
   inputApiKey.setAttribute("type", "text");
@@ -18,18 +18,18 @@ export const ApiKeyModal = () => {
   const btnApiKey = () => {
     const myinput = document.querySelector(".input-apikey");
     const apiKeyValue = myinput.value;
-    const myApiKey = '';
-    if(apiKeyValue != myApiKey){
+    const myApiKey = "";
+    if ((apiKeyValue !== myApiKey)) {
       alert("Incorrect ApiKey. Please, try again");
-    }else{
-      if(buttonSaveApiKey.innerHTML === "Save") {
-      setApiKey(apiKeyValue);
-      buttonSaveApiKey.innerHTML = "Delete";
-      inputApiKey.value = "";
+    } else {
+      if (buttonSaveApiKey.innerHTML === "Save") {
+        setApiKey(apiKeyValue);
+        buttonSaveApiKey.innerHTML = "Delete";
+        inputApiKey.value = "";
       } else {
-      removeApiKey(apiKeyValue);
-      buttonSaveApiKey.innerHTML = "Save";
-      inputApiKey.value = "";
+        removeApiKey(apiKeyValue);
+        buttonSaveApiKey.innerHTML = "Save";
+        inputApiKey.value = "";
       }
     }
   };

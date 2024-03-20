@@ -2,9 +2,6 @@
 
 // Importa la función para obtener la API KEY desde apiKey.js
 import { getApiKey } from "./ApiKey.js";
-
-
-
 export const communicateWithOpenAI = async (archiWorks, userInputQuestion) => {
   const getApi = getApiKey();
   const url = "https://api.openai.com/v1/chat/completions";
