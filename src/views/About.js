@@ -11,6 +11,8 @@ export const About = ({ id }) => {
   iconHomeContainer.classList.add("iconHomeContent");
   const dataAbout = document.createElement("div");
   dataAbout.classList.add("dataAbout");
+  const dataIntAbout = document.createElement("div");
+  dataIntAbout.classList.add("dataIntAbout");
   const listItem = document.createElement("li");
   listItem.classList.add("infoAbout");
   listItem.setAttribute("itemscope", "");
@@ -21,7 +23,7 @@ export const About = ({ id }) => {
         <img src=${archiWorks.imageUrl} alt=${archiWorks.name} id="imageAbout">
         <div class="contentAbout">
           <dt></dt><dd id="nameAbout" itemprop="name">${archiWorks.name}</dd>
-          <dt></dt><dd itemprop="shortDescription">${archiWorks.shortDescription}</dd>
+          <dt></dt><dd itemprop="short-description">${archiWorks.shortDescription}</dd>
           <dl itemscope="" itemtype="facts" style="display: none;">
             <dt style="display: none;"></dt><dd id="locationAbout" itemprop="location">${archiWorks.facts.location}</dd>
           </dl>
@@ -52,7 +54,7 @@ export const About = ({ id }) => {
   // userInput.value = '';
   const sendButton = document.createElement("button");
   sendButton.classList.add("send-button");
-  sendButton.innerHTML = "Send";
+  // sendButton.innerHTML = "Send";
 
   // const message = document.querySelector('.input-request');
 
@@ -91,8 +93,8 @@ export const About = ({ id }) => {
   textChat.append(imageCont, chatMessages);
 
   individualChatContainer.append(textChat,userChat);
-
-  dataAbout.append(listItem, individualChatContainer);
+  dataAbout.append(dataIntAbout);
+  dataIntAbout.append(listItem, individualChatContainer);
   aboutInfo.append(iconHomeContainer, dataAbout, Footer());
   return aboutInfo;
 };
