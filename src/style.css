@@ -791,51 +791,81 @@ overflow-y: auto;
 .error-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: #F2F2F0;
+  background-color: #BB9573;
   width: 100%;
-  height: 100%;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
 }
 
 .image-error {
   display: flex;
   justify-content: center;
-  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+
 }
 
 .image {
-  width: 100vw;
-  max-width: 100%;
-  height: 100vh;
-  opacity: 0.4;
+  width: 420px;
+  height: 420px;
+  margin-top: 70px;
+  border-radius: 20px;
+  opacity: 0.8;
+  filter: grayscale(1);
 }
 
 .text-error {
-  color: black;
+  color: white;
   font-family: "Urbanist", sans-serif;
   font-optical-sizing: auto;
-  font-style: normal;
-  font-size: 35px;
   text-align: center;
   z-index: 1;
   position: absolute;
+  display: flex;
+  flex-direction: column;
+  margin-top: 20em;
+  justify-content: center;
+  align-items: center;
+}
+
+#error-404{
+  font-size: 60px;
+  padding-bottom: 2px;
+  font-weight: bolder;
+
+}
+
+#text-404{
+  font-size: 45px;
+  padding-bottom: 15px;
+  margin-bottom: 15px;
+  font-weight: normal;
+
+}
+#error-description{
+  font-style: normal;
+  font-size: 30px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  width: 40em;
+  font-weight: lighter;;
 }
 .error-button-home{
-  z-index: 1;
-  position: absolute;
-  bottom: 200px;
+  display: flex;
+  padding-bottom: 20px;
+  justify-content: center;
 }
 
 #error-btn{
-  font-size: 0.9em;
+  font-size: 1.4em;
   font-family: "Inter", sans-serif;
   color: whitesmoke;
-  width: 100px;
+  width: 200px;
+  height: 50px;
   max-width: 50%;
   box-sizing: border-box;
-  margin: 3.5em 2em 3em 2em;
-  padding: 0.6em 0 0.6em 0;
+  margin: 4em 2em 3em 2em;
   border: 1.5px solid rgba(112, 78, 78, 1);
   border-radius: 1.5em;
   background-color: rgba(168, 111, 70, 1);

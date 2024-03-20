@@ -5,11 +5,11 @@ export const Error = () => {
   viewEl.innerHTML = `
       <div class="error-container">
         <div class="image-error">
-          <img src="https://github.com/maralobes/DEV013-dataverse-chat/blob/main/src/images/errorimage.jpeg?raw=true" alt="an image of the Sistine Chapel" class="image">  
+          <img src="https://github.com/maralobes/DEV013-dataverse-chat/blob/main/src/images/errorimage.jpeg?raw=true" alt="an image of a sad face" class="image">  
         </div>
         <div class="text-error">   
-          <p id="404-error"> 404 </p> 
-          <p id="404-text"> Page not found </p>
+          <p id="error-404"> 404 </p> 
+          <p id="text-404"> Page not found </p>
           <p id="error-description"> "Uh-oh! It seems we've wandered off the beaten path. Our team is exploring new routes to bring wonders back to your screen. Hang tight, the journey continues shortly!".</p>
         </div>
         <div class="error-button-home">
@@ -23,3 +23,5 @@ export const Error = () => {
 
   return viewEl;
 };
+
+/* "https://github.com/maralobes/DEV013-dataverse-chat/blob/main/src/images/sadface.png?raw=true" */
