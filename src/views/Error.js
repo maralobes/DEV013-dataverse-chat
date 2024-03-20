@@ -4,8 +4,7 @@ export const Error = () => {
   const viewEl = document.createElement("div");
   viewEl.innerHTML = `
       <div class="error-container">
-        <div class="image-error">
-          <img src="https://github.com/maralobes/DEV013-dataverse-chat/blob/main/src/images/errorimage.jpeg?raw=true" alt="an image of the Sistine Chapel" class="image">  
+        <div class="image-error">  
         </div>
         <div class="text-error">   
           <p id="404-error"> 404 </p> 
