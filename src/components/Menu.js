@@ -43,12 +43,10 @@ export const iconGrpChat = () => {
     const boxApiKey = document.createElement("div");
     boxApiKey.classList.add("boxApiKey");
     const apiKeyPopup = ApiKeyModal();
-    console.log(boxApiKey);
     const closeButton = document.createElement("button");
     closeButton.className = "buttonCloseApiModal";
     closeButton.textContent = "Close";
     const grpChatWind = document.querySelector(".grpChatCont");
-    console.log(grpChatWind);
     grpChatWind.append(boxApiKey);
     boxApiKey.append(apiKeyPopup);
     boxApiKey.append(closeButton);

@@ -18,10 +18,7 @@ export const Error = () => {
       </div>
       `;
   const buttonHome = viewEl.querySelector("#error-btn");
-  console.log(buttonHome);
   buttonHome.addEventListener("click", () => navigateTo("/", {}));
 
   return viewEl;
 };
-
-/* "https://github.com/maralobes/DEV013-dataverse-chat/blob/main/src/images/sadface.png?raw=true" */

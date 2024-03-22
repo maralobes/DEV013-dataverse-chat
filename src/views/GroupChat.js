@@ -3,7 +3,7 @@ import dataset from "../data/dataset.js";
 import { iconHome } from "../components/Menu.js";
 import { Footer } from "../components/footer.js";
 import { navigateTo } from "../router.js";
-console.log(dataset);
+
 export const GroupChat = () => {
   const renderItems = (dataset) => {
     const ulList = document.createElement("ul");
@@ -39,7 +39,6 @@ export const GroupChat = () => {
 
       
     });
-    console.log(ulList);
     return ulList;
   };
 
@@ -133,7 +132,6 @@ export const GroupChat = () => {
 
         systemResponse.innerHTML = randomResponses[responseIndex];
 
-        console.log(systemResponse);
         chatMessages.append(sysRespCont);
         sysRespCont.append(systemResponse);
 

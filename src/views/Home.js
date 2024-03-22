@@ -58,7 +58,6 @@ export const Home = () => {
         aboutInfo.style.opacity = "0.2";
 
         const apiKeyPopup = ApiKeyModal();
-        console.log(boxApiKey);
 
         const closeButton = document.createElement("button");
         closeButton.className = "buttonCloseApiModal";
