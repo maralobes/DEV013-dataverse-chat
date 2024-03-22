@@ -1,26 +1,38 @@
-import { iconHome } from "../src/components/Menu";
+import { iconHome, iconGrpChat } from "../src/components/Menu";
+import { navigateTo } from "../src/router.js";
+// import { getApiKey } from "../src/lib/ApiKey.js";
 
-fdescribe("iconHome", () => {
-  test("it should be a button", () => {
-    const mockContainer = document.createElement("div");
-    // document.body.appendChild(mockContainer);
+jest.mock("../src/router", () => ({
+  navigateTo: jest.fn(),
+}));
+// jest.mock("../src/lib/ApiKey", () => ({
+//   getApiKey: jest.fn(),
+// }));
 
-    mockContainer.append(iconHome());
+describe("Home button", () => {
+  const homeButton = iconHome();
+  test("It should be a button and is a function", () => {
+    expect(typeof iconHome).toBe("function");
+  });
+  test("creates a button", () => {
+    expect(homeButton.tagName).toBe("BUTTON");
+  });
+  test("iconHome navigate to Home", () => {
+    const mockEvent = new Event("click");
+    homeButton.dispatchEvent(mockEvent);
+    expect(navigateTo).toHaveBeenCalledWith("/", {});
+  });
+});
 
-    const divElement = mockContainer.querySelector('div');
+describe("iconGrpChat", () => {
+  test("debería crear un elemento div con la clase 'chats'", () => {
+    const div = iconGrpChat();
+    expect(div.classList.contains("chats")).toBeTruthy();
+  });
 
-    // Assert that the div exists
-    expect(divElement).toBeDefined();
-
-    // Assert that the button exists inside the div
-    const buttonElement = divElement.querySelector('button');
-    expect(buttonElement).toBeDefined();
-
-    // Assert that the button has the correct class
-    expect(buttonElement.classList.contains('tittleButton')).toBe(true);
-
-    // Assert that the button has the correct text content
-    expect(buttonElement.textContent).toBe('ARCHITOPIA');
-
+  test("debería crear un botón con el atributo 'data-testid' igual a 'button-chats'", () => {
+    const div = iconGrpChat();
+    const button = div.querySelector("button");
+    expect(button.getAttribute("data-testid")).toBe("button-chats");
   });
 });
