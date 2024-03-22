@@ -486,7 +486,8 @@ dl {
   justify-content: center;
 }
 [itemprop="name"] {
-  font-size: calc(0.6em + 1vw);
+  /* font-size: calc(0.6em + 1vw); */
+  font-size: 1.4em;
   font-weight: bold;
   width: 100%;
   color: black;
@@ -494,7 +495,8 @@ dl {
 }
 [itemprop="location"] {
   width: 100%;
-  font-size: calc(0.3em + 1vw);
+  /* font-size: calc(0.3em + 1vw); */
+  font-size: 0.9em;
 }
 #imageAbout {
   width: 8%;

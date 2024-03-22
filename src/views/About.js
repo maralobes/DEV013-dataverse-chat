@@ -76,6 +76,7 @@ export const About = ({ id }) => {
       const systemResponse = document.createElement('p');
       systemResponse.classList.add("system-output");
       systemResponse.innerHTML = response.choices[0].message.content;
+      console.log(systemResponse);
 
       userMsgCont.appendChild(userMsg);
       sysRspnCont.appendChild(systemResponse);
