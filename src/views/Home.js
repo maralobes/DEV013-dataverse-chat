@@ -73,9 +73,10 @@ export const Home = () => {
           aboutInfo.style.opacity = "1";
           abtChatWind.removeChild(boxApiKey);
         });
+
       }
 
-      listItem.addEventListener("click", async () => {
+      imageWork.addEventListener("click", async () => {
         if (getApiKey()) {
           await navigateTo("/about", { id: item.id });
         } else {
@@ -86,6 +87,97 @@ export const Home = () => {
 
       archiWork.append(imageWork, nameWork, nameText, factsWork);
       factsWork.append(locationWork, locationText);
+
+      const buttonAbout = document.createElement("button");
+      buttonAbout.className = "btnAboutPopup";
+      buttonAbout.innerHTML = "See more"
+      listItem.appendChild(buttonAbout);
+
+      buttonAbout.addEventListener("click", function openPopup() {
+        const popupDiv = document.createElement("div");
+        popupDiv.className = "popup";
+        popupDiv.style.display = "inline-flex";
+        popupDiv.style.backgroundColor = "#ffffff";
+        popupDiv.style.marginLeft = "15%";
+        popupDiv.style.marginRight = "15%";
+        popupDiv.style.borderRadius = "100px";
+        popupDiv.style.width = "fit-content";
+        popupDiv.style.height = "fit-content";
+        popupDiv.style.top = "5%";
+        popupDiv.style.bottom = "5%";
+    
+        const imagePop = document.createElement("img");
+        imagePop.src = item.imageUrl;
+        imagePop.id = "imagePop";
+        imagePop.style.width = "50%";
+        imagePop.style.height = "50%";
+        imagePop.style.borderRadius = "50px"
+        // imagePop.style.marginTop = "4%";
+  
+        const popupContainerDiv = document.createElement("div");
+        popupContainerDiv.className = "popup-container";
+        popupContainerDiv.style.display = "block";
+        popupContainerDiv.style.paddingLeft = "4%";
+        popupContainerDiv.style.alignContent = "flex-start";
+        popupContainerDiv.style.fontSize = "14px"
+        popupContainerDiv.style.color = "black";
+        popupContainerDiv.style.display = "block";
+        popupContainerDiv.style.width = "fit-content";
+  
+        const namePop = document.createElement("p");
+        namePop.innerHTML = `<b>Name:</b> ${item.name}`;
+        namePop.style.margin = "7px";
+        namePop.style.color = "black";
+  
+        const shortDescPop = document.createElement("p");
+        shortDescPop.innerHTML = "<b>Short description: </b>" + item.shortDescription;
+        shortDescPop.style.margin = "7px";
+        shortDescPop.style.color = "black";
+      
+        const descrPop = document.createElement("p");
+        descrPop.innerHTML = "<b>Description: </b>" + item.description;
+        descrPop.style.margin = "7px";
+        descrPop.style.color = "black";
+    
+        const yearPop = document.createElement("p");
+        yearPop.innerHTML = "<b>Year of built: </b>" + item.facts.yearOfBuilt;
+        yearPop.style.margin = "7px";
+        yearPop.style.color = "black";
+    
+        const stylePop = document.createElement("p");
+        stylePop.innerHTML = "<b>Style: </b>" + item.facts.style;
+        stylePop.style.margin = "7px";
+        stylePop.style.color = "black";
+    
+        const locationPop = document.createElement("p");
+        locationPop.innerHTML = "<b>Location: </b>" + item.facts.location;
+        locationPop.style.margin = "7px";
+        locationPop.style.color = "black";
+    
+        const constructorPop = document.createElement("p");
+        constructorPop.innerHTML = "<b>Constructor: </b>" + item.facts.constructor;
+        constructorPop.style.margin = "7px";
+        constructorPop.style.color = "black";
+    
+        const visitorsPop = document.createElement("p");
+        visitorsPop.innerHTML = "<b>Visitors: </b>" + item.facts.annualVisitors;
+        visitorsPop.style.margin = "7px";
+        visitorsPop.style.color = "black";
+    
+        const wonderPop = document.createElement("p");
+        wonderPop.innerHTML = "<b>Wonder of the world: </b>" + item.facts.isWonderOfTheWorld;
+        wonderPop.style.margin = "7px";
+        wonderPop.style.color = "black";
+  
+        const root = document.getElementById("root");
+        popupDiv.append(imagePop,popupContainerDiv)
+        popupContainerDiv.append(namePop,shortDescPop,descrPop,yearPop,stylePop,locationPop,constructorPop,visitorsPop,wonderPop);
+  
+        root.append(popupDiv);
+        popupDiv.addEventListener('click', function closePopup() {
+          root.removeChild(popupDiv);
+        });
+      });
     });
 
     return ulList;

@@ -135,6 +135,21 @@ body {
   flex-flow: column;
   align-items: stretch;
   gap: 5%;
+  margin: 20%;
+  /* left: -550%; */
+  /* top: 120%; */
+  width: 50%;
+  max-width: 300em;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+  background-color: rgba(246, 235, 218, 1);
+  padding: 1%;
+  border-radius: 0.5em;
+  z-index: 1;
+  position: absolute;
+  /* display: flex;
+  flex-flow: column;
+  align-items: stretch;
+  gap: 5%;
   margin: 0 10% 0 10%;
   left: -550%;
   top: 120%;
@@ -143,7 +158,7 @@ body {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
   background-color: rgba(246, 235, 218, 1);
   padding: 1%;
-  border-radius: 0.5em;
+  border-radius: 0.5em; */
 }
 
 .boxAbtApiKey {
@@ -486,7 +501,8 @@ dl {
   justify-content: center;
 }
 [itemprop="name"] {
-  font-size: calc(0.6em + 1vw);
+  /* font-size: calc(0.6em + 1vw); */
+  font-size: 1.4em;
   font-weight: bold;
   width: 100%;
   color: black;
@@ -494,7 +510,8 @@ dl {
 }
 [itemprop="location"] {
   width: 100%;
-  font-size: calc(0.3em + 1vw);
+  /* font-size: calc(0.3em + 1vw); */
+  /* font-size: 0.9em; */
 }
 #imageAbout {
   width: 8%;
@@ -534,7 +551,7 @@ dt {
 dd {
   font-size: calc(0.05em + 1vw);
   color: #757577;
-  margin: 0 0 0.7em 0;
+  /* margin: 0 0 0.7em 0; */
 }
 
 .footerContainer {
@@ -617,17 +634,25 @@ button[data-testid="button-chats"]:hover::after {
   font-size: 14px;
   transition: opacity 0.3s ease;
 }
-
+.form-apikey {
+  width: 100%;
+  display: flex;
+  /* align-content: center; */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 .input-apikey {
   display: flex;
   align-items: flex-start;
+  justify-content: center;
   font-size: 0.9em;
   font-family: "Inter", sans-serif;
   color: #444;
   line-height: 1.3;
   padding: 0.6em 1.4em 0.5em 0.8em;
-  max-width: 100%;
-  width: 32em;
+  max-width: 32em;
+  width: 100%;
   box-sizing: border-box;
   margin: 0 0 10px 0;
   border: 1.5px solid rgba(112, 78, 78, 1);
@@ -655,6 +680,13 @@ button[data-testid="button-chats"]:hover::after {
   opacity: 0.9;
   background-color: gainsboro;
   margin: 2% 0 0 0;
+  align-items: center;
+  justify-content: center;
+}
+p.api-error {
+  color: red;
+  font-size: 0.9em;
+  margin: 1em 0 0;
 }
 .buttonCloseBoxChat {
   position: relative;
@@ -777,7 +809,7 @@ overflow-y: auto;
   border-radius: 1.5em;
   /* background-color: rgba(168, 111, 70, 1); */
   background-color:#4040d0;
-  background-image: url(./images/Clip\ path\ group.png);
+  background-image: url(https://github.com/C-LedezmaRodriguez/DEV013-dataverse-chat/blob/main/src/images/Clip%20path%20group.png);
     background-repeat: no-repeat, repeat;
     background-position: right 45% top 50%, 0 0;
     background-size: 2.3em;
@@ -1089,10 +1121,26 @@ img.imageGrpChat {
   border-radius: 1.5em;
   /* background-color: rgba(168, 111, 70, 1); */
   background-color: #4040d0;;
-  background-image: url(./images/Clip\ path\ group.png);
+  background-image: url(https://github.com/C-LedezmaRodriguez/DEV013-dataverse-chat/blob/main/src/images/Clip%20path%20group.png);
     background-repeat: no-repeat, repeat;
     background-position: right 45% top 50%, 0 0;
     background-size: 2.3em;
   box-shadow: 0 2px 0 2px rgba(0, 0.4, 0, 0.08);
   cursor: pointer;
+}
+button.btnAboutPopup {
+  border: none;
+  margin: 0;
+  color: blue;
+  text-decoration: underline blue;
+  background-color: whitesmoke;
+  width: 20%;
+  margin: 0.3em 0 0;
+  cursor: pointer;
+}
+.popup {
+  position: fixed;
+  z-index: 2;
+  padding: 5%;
+  border: 1px solid #ccc;
 }

@@ -1,40 +1,43 @@
-import { iconHome } from "../src/components/Menu.js";
+import { iconHome, iconGrpChat } from "../src/components/Menu";
 import { navigateTo } from "../src/router.js";
+// import { getApiKey } from "../src/lib/ApiKey.js";
+// import { iconStatistics } from '../src/components/Menu.js';
+// import { computeStats } from '../src/lib/dataFunctions.js';
 
-jest.mock("../src/router.js");
-//Test if the button exists.
+jest.mock("../src/router", () => ({
+  navigateTo: jest.fn(),
+}));
 
-describe('iconHome', () => {
-  test('it should be a button', () => {
-    expect(iconHome()).toBeDefined();
+// jest.mock("../src/lib/ApiKey", () => ({
+//   getApiKey: jest.fn(),
+// }));
+jest.mock('../src/lib/dataFunctions.js');
+
+describe("Home button", () => {
+  const homeButton = iconHome();
+  test("It should be a button and is a function", () => {
+    expect(typeof iconHome).toBe("function");
+  });
+  test("creates a button", () => {
+    expect(homeButton.tagName).toBe("BUTTON");
+  });
+  test("iconHome navigate to Home", () => {
+    const mockEvent = new Event("click");
+    homeButton.dispatchEvent(mockEvent);
+    expect(navigateTo).toHaveBeenCalledWith("/", {});
+  });
+});
+
+describe("iconGrpChat", () => {
+  test("debería crear un elemento div con la clase 'chats'", () => {
+    const div = iconGrpChat();
+    expect(div.classList.contains("chats")).toBeTruthy();
   });
 
-  //Then, test if the button has the correct class.
-
-  test('it should have a class tag', () => {
-    // const iconButton = document.createElement('button');
-    // iconButton.classList.add('tittleButton');
-    // iconButton.innerHTML = "ARCHITOPIA";
-    const iconButton = iconHome();
-    expect(iconButton.tagName).toBe('BUTTON')
-    expect(iconButton.classList.contains('tittleButton')).toBe(true);
+  test("debería crear un botón con el atributo 'data-testid' igual a 'button-chats'", () => {
+    const div = iconGrpChat();
+    const button = div.querySelector("button");
+    expect(button.getAttribute("data-testid")).toBe("button-chats");
   });
-
-  // Then, test if iconHome calls navigateTo when a click happens
-
-  test("when an user clicks iconHome, it has to call navigateTo", () => {
-    //Here, it has to mock navigateTo function
-
-    navigateTo.mockImplementation(() => {});
-    
-    //Renderiza button Home & have access to the button
-    //     const iconButton =  iconHome();
-    //     const selectedIconHome = iconButton.querySelector('.tittleButton');
-    
-    //     //Simulate a click
-    // //     selectedIconHome.click();
-    
-    expect(navigateTo()).toHaveBeenCalledWith('/', {});
-  });
-
-})
+});
+/* eslint-disable */

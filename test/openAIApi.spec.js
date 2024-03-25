@@ -52,4 +52,3 @@ describe('communicateWithOpenAI', () => {
     expect(response).toEqual(fakeResponse);
   })
 });
-
