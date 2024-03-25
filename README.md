@@ -17,19 +17,13 @@
 
 ## 1. Preámbulo
 
-En nuestro día a día, las aplicaciones web son como amigas
-inseparables. Desde las redes sociales hasta las herramientas de
-trabajo, las usamos todo el tiempo. Pero lo que hace que este
-momento sea realmente especial es que estas aplicaciones nos pueden
-abrir una puerta a algo asombroso: la interacción con inteligencia
-artificial.
-
-¿Qué tal si pudiéramos conversar con alguien que vivió hace más de
-cien años o incluso con los personajes de nuestras series y
-películas favoritas o con entidades que normalmente no pueden hablar
-como por ejemplo planetas o animales? La inteligencia artificial nos
-puede ayudar a entender el pasado y a conectarnos con figuras
-históricas, así como a sumergirnos en mundos ficticios.
+Nuestra era tecnológica nos permite hacer cosas asombrosas,
+como chatear con personas al otro lado del mundo, conectarnos
+con lo que pasa en diferentes partes del mundo casi sin perdernos
+nada. Incluso, nos puede permitir conversar con personas que ya
+no existen o, más asombroso aún, con entidades que ni siquiera, 
+en nuetra realidad podrían hablar. Y es que la inteligencia artificial
+ha abierto una puerta asombrosa para nosotros.
 
 ![Preview app](https://github-production-user-asset-6210df.s3.amazonaws.com/123121338/271433237-2bd1477b-15ef-49d4-9fcb-226b3263c46a.png)
 

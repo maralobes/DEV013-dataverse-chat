@@ -1,4 +1,4 @@
-import { setApiKey, removeApiKey } from "../lib/ApiKey.js";
+import { setApiKey, removeApiKey } from "../lib/apiKey.js";
 
 export const ApiKeyModal = () => {
   const apiKeyContainer = document.createElement("div");

@@ -2,7 +2,7 @@ import { computeStats } from "../lib/dataFunctions.js";
 import { navigateTo } from "../router.js";
 import data from "./../data/dataset.js";
 import { ApiKeyModal } from "./ApiKeyModal.js";
-import { getApiKey } from "../lib/ApiKey.js";
+import { getApiKey } from "../lib/apiKey.js";
 
 export const iconHome = () => {
   const buttonHome = document.createElement("button");
