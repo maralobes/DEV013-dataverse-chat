@@ -8,9 +8,6 @@ jest.mock("../src/router", () => ({
   navigateTo: jest.fn(),
 }));
 
-// jest.mock("../src/lib/ApiKey", () => ({
-//   getApiKey: jest.fn(),
-// }));
 jest.mock('../src/lib/dataFunctions.js');
 
 describe("Home button", () => {
