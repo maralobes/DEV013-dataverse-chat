@@ -31,17 +31,12 @@ export const iconGrpChat = () => {
     boxApiKey.append(apiKeyPopup);
     boxApiKey.append(closeButton);
 
+    const boxBack = document.querySelector(".boxGrpChat");
+    boxBack.style.opacity = "0.2";
+
     closeButton.addEventListener("click", function closePopup() {
-      // const headerTitle = document.querySelector(".headerTittle");
-      // headerTitle.style.visibility = "visible";
-      // const funcStats = document.querySelector(
-      //   'div[class = "functionsContainer"]'
-      // );
-      // const itemStats = document.querySelector(
-      //   'div[class = "items-container"]'
-      // );
-      // funcStats.style.filter = "none";
-      // itemStats.style.filter = "none";
+      const boxBack = document.querySelector(".boxGrpChat");
+      boxBack.style.opacity = "1";
       grpChatWind.removeChild(boxApiKey);
       // divIconChats.removeChild(closeButton);
     });
@@ -65,14 +60,17 @@ export const iconStatistics = () => {
   const buttonStats = document.createElement("button");
   buttonStats.classList.add("statistics-button");
   buttonStats.addEventListener("click", function popupStats() {
-    const funcStats = document.querySelector(
-      'div[class = "functionsContainer"]'
-    );
-    const itemStats = document.querySelector('div[class = "items-container"]');
-    const headStats = document.querySelector('header[class = "headerTittle"]');
-    funcStats.style.filter = "blur(2px)";
-    itemStats.style.filter = "blur(2px)";
-    headStats.style.filter = "blur(2px)";
+    const funcStats = document.querySelector(".functionsContainer");
+    const itemStats = document.querySelector(".items-container");
+    const headStats = document.querySelector(".headerTittle");
+    if (funcStats && itemStats && headStats) {
+      funcStats.style.filter = "blur(2px)";
+      itemStats.style.filter = "blur(2px)";
+      headStats.style.filter = "blur(2px)";
+    } 
+    // else {
+    //   console.error("Alguno de los elementos no fue encontrado en el DOM.");
+    // }
 
     const stats = computeStats(data);
     const popupStatsWonder = document.createElement("div");
@@ -93,9 +91,11 @@ export const iconStatistics = () => {
       const headStats = document.querySelector(
         'header[class = "headerTittle"]'
       );
-      funcStats.style.filter = "none";
-      itemStats.style.filter = "none";
-      headStats.style.filter = "none";
+      if (funcStats && itemStats && headStats) {
+        funcStats.style.filter = "none";
+        itemStats.style.filter = "none"; 
+        headStats.style.filter = "none";
+      }
       divStatistics.removeChild(popupStatsWonder);
     });
   });

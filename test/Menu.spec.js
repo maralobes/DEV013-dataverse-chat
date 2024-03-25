@@ -1,13 +1,17 @@
 import { iconHome, iconGrpChat } from "../src/components/Menu";
 import { navigateTo } from "../src/router.js";
 // import { getApiKey } from "../src/lib/ApiKey.js";
+// import { iconStatistics } from '../src/components/Menu.js';
+// import { computeStats } from '../src/lib/dataFunctions.js';
 
 jest.mock("../src/router", () => ({
   navigateTo: jest.fn(),
 }));
+
 // jest.mock("../src/lib/ApiKey", () => ({
 //   getApiKey: jest.fn(),
 // }));
+jest.mock('../src/lib/dataFunctions.js');
 
 describe("Home button", () => {
   const homeButton = iconHome();
@@ -36,3 +40,6 @@ describe("iconGrpChat", () => {
     expect(button.getAttribute("data-testid")).toBe("button-chats");
   });
 });
+/* eslint-disable */
+
+
