@@ -11,6 +11,7 @@ export const iconHome = () => {
   buttonHome.addEventListener("click", () => navigateTo("/", {}));
   return buttonHome;
 };
+
 export const iconGrpChat = () => {
   const divIconChats = document.createElement("div");
   divIconChats.classList.add("chats");
@@ -35,10 +36,11 @@ export const iconGrpChat = () => {
     boxBack.style.opacity = "0.2";
 
     closeButton.addEventListener("click", function closePopup() {
+      
       const boxBack = document.querySelector(".boxGrpChat");
       boxBack.style.opacity = "1";
+
       grpChatWind.removeChild(boxApiKey);
-      // divIconChats.removeChild(closeButton);
     });
   }
   buttonChats.addEventListener("click", async () => {
