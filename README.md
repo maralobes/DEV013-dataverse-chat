@@ -23,7 +23,7 @@ no existen o, más asombroso aún, con entidades que ni siquiera,
 en nuetra realidad podrían hablar. Y es que la inteligencia artificial
 ha abierto una puerta asombrosa para nosotros.
 
-![Preview app](https://github-production-user-asset-6210df.s3.amazonaws.com/123121338/271433237-2bd1477b-15ef-49d4-9fcb-226b3263c46a.png)
+![Preview app](https://github.com/maralobes/DEV013-dataverse-chat/blob/main/src/images/homearchitopia.png?raw=true)
 
 ## 2. Resumen del proyecto
 
