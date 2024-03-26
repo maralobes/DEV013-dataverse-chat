@@ -18,7 +18,7 @@ Con el fin de no incluir la clave directamente en el código de la aplicación,
 creamos un input que permitiera ingresar o pegar la API KEY.
 Este input lo ubicamos en un modal.
 
-![Preview apiKey]()
+![Preview apiKey](https://github.com/maralobes/DEV013-dataverse-chat/blob/main/src/images/apiKeymodalreadme.png?raw=true)
 
 ### Almacenamiento Seguro de la API KEY con Local Storage
 

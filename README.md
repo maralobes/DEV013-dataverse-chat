@@ -248,8 +248,8 @@ Posteriormente, diseñamos la Interfaz de Usuaria. Para eso, utilizamos Figma.
 Este diseño representa el _ideal_ de nuestra solución tanto para desktop como para mobile.
 Además, nuestro diseño trata de seguir los fundamentos de _visual design_.
 
-Este es nuestro prototipo de alta fidelidad para [desktop]().
-Este es nuestro prototipo de alta fidelidad para [mobile]().
+Este es nuestro prototipo de alta fidelidad para [desktop](https://github.com/maralobes/DEV013-dataverse-chat/blob/main/src/images/prototipoaltadesktop.png?raw=true).
+Este es nuestro prototipo de alta fidelidad para [mobile](https://github.com/maralobes/DEV013-dataverse-chat/blob/main/src/images/prototipoaltamobile.png?raw=true).
 
 ### Testeos de usabilidad
 
