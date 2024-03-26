@@ -120,24 +120,38 @@ La lógica del proyecto está implementada completamente en JavaScript
 (ES6), HTML y CSS. En este proyecto NO está permitido usar librerías o
 frameworks.
 
-El _boilerplate_ del proyecto es la siguiente:
+El _boilerplate_ del proyecto es el siguiente:
 
 ```text
 .
 ├── src
 |  ├── components
+|  |  └── ApiKeyModal.js
+|  |  └── Footer.js
+|  |  └── Header.js
+|  |  └── Menu.js
 |  ├── data
 |  |  └── dataset.js
 |  ├── lib
 |  |  └── dataFunctions.js
+|  |  └── apiKey.js
+|  |  └── openAIApi.js
 |  ├── views
+|  |  └── About.js
+|  |  └── Error.js
+|  |  └── GroupChat.js
+|  |  └── Home.js
 |  ├── index.html
 |  ├── index.js
 |  ├── router.js
 |  └── style.css
 ├── test
 |  └── dataFunctions.spec.js
-|  └── example.spec.js
+|  └── apiKey.spec.js
+|  └── apiKeyModal.spec.js
+|  └── header.spec.js
+|  └── Menu.spec.js
+|  └── openAIApi.spec.js
 ├── README.md
 └── package.json
 
@@ -145,14 +159,10 @@ El _boilerplate_ del proyecto es la siguiente:
 
 ## 6. Hitos
 
-Para resolver un problema,
-es importante comprenderlo en profundidad.
-Una forma de hacerlo es descomponerlo en problemas más pequeños.
-Esto nos ayudará a identificar las causas del problema y
-a desarrollar soluciones más efectivas.
+Para abordar la solución de este proyecto, lo descompusimos 
+en problemas más pequeños, llamados hitos. Esto nos ayudó a identificar las causas 
+el problema y a desarrollar soluciones más efectivas.
 
-Para este proyecto, trabajamos por hitos, pues el fin era
-enfocarnos en un problema a la vez y hacer un seguimiento del progreso.
 A continuación, presentamos un cronograma de hitos con el que
 organizamos nuestro trabajo.
 
@@ -160,7 +170,6 @@ organizamos nuestro trabajo.
 * [Hito 2](./docs/02-milestone.md)
 * [Hito 3](./docs/03-milestone.md)
 * [Hito 4](./docs/04-milestone.md)
-* [Hito 5](./docs/05-milestone.md)
 
 ## 7. Criterios de aceptación mínimos del proyecto
 
@@ -170,8 +179,21 @@ siguientes requisitos:
 
 ### Definición del producto
 
-Documentamos brevemente el trabajo de cómo fue nuestro proceso de diseño 
-y cómo creemos que el producto resuelve el problema (o problemas) que tiene nuestra usuaria.
+Primero, para crear una solución al problema de nuestra usuaria, respondimos las siguientes preguntas:
+
+* ¿Quiénes son las principales usuarias del producto?
+* ¿Cuáles son los objetivos de estas usuarias en relación con el producto?
+* ¿Cuáles son los datos más relevantes que quieren ver en la interfaz y por qué?
+* ¿Cuándo utilizan o utilizarían el producto?
+
+De esta investigación, pudimos extraer o construir nuestro público meta final, el cual lo definimos así:
+
+_Personas adultas, profesionales o estudiantes, que les interese el arte o conocer sobre un posible destino_.
+
+Además, sobre el diseño, consideramos lo siguiente:
+
+* Paleta de color: escogimos una paleta compuesta por 5 colores, cuyos tonos fueran acordes a la temática.
+* Tipografía: seleccionamos dos tipografías par jugar con la jerarquía visual.
 
 ### Historias de usuaria
 
@@ -184,6 +206,31 @@ A partir de esta historias de usuaria planificamos nuestros sprints. Para ello,
 dividimos cada historia en tareas.
 
 Las historias de usuario fueron las siguientes:
+
+* Historia de usuario 1: Como usuaria final quiero que se visualicen todas las obras arquitectónicas, 
+  con su información principal, en una página de inicio para poder elegir cuál desplegar.
+
+* Historia de usuario 2: Como usuaria final quiero filtrar las obras arquict. según el nombre, el año,
+  el constructor, los facts, la cantidad de visitantes o si es maravilla o no para dejar solo que me interesa.
+
+* Historia de usuario 3: Como usuaria final quiero ordenar las obras para visualizar los datos de una mejor manera.
+
+* Historia de usuario 4: Como usuaria final quiero poder calcular (cuál es la obra más visitada o la menos visitada al año) para poder comparar (el tránsito de personas entre obras).
+
+* Historia de usuario 5: Como usuaria final quiero poder hacer click sobre la imagen de la obra 
+  arquitectónica para que se desplieguen los datos.
+
+* Historia de usuario 6:Como usuaria final quiero poder limpiar los filtros para poder reiniciar la búsqueda.
+
+* Historia de usuario 7: Como usuaria final quiero poder chatear individualmente con cada una de las obras.
+
+* Historia de usuario 8: Como usuaria final quiero poder chatear de forma grupal con todas las obras.
+
+* Historia de usuario 9: Como usuaria final quiero poder darme cuenta que hay un error en la búsqueda de alguna página.
+
+* Historia de usuario 10: Como usuaria final quiero poder darme cuenta cuando mi ApiKey sea incorrecta.
+
+* Historia de usuario 11: Como usuaria final quiero poder visualizar la data en diferentes dispositivos móviles para poder acceder a ella desde mi compu, mi tablet o mi teléfono.
 
 
 ### Diseño de la Interfaz de Usuaria
@@ -198,8 +245,11 @@ solución usando papel y lápiz. Este fue nuestro [propotipo de baja fidelidad] 
 
 Posteriormente, diseñamos la Interfaz de Usuaria. Para eso, utilizamos Figma.
 
-Este diseño representa el _ideal_ de nuestra solución. Además, nuestro
-diseño trata de seguir los fundamentos de _visual design_.
+Este diseño representa el _ideal_ de nuestra solución tanto para desktop como para mobile.
+Además, nuestro diseño trata de seguir los fundamentos de _visual design_.
+
+Este es nuestro prototipo de alta fidelidad para [desktop]().
+Este es nuestro prototipo de alta fidelidad para [mobile]().
 
 ### Testeos de usabilidad
 
@@ -208,7 +258,7 @@ y con base en los resultados, iteramos los diseños.
 
 Gracias al testeo, hubo cambios en la posición de ciertos botones que modificamos
 debido a que, como la aplicación debía ser responsive, tenían que estar
-ubicados según los puntos de calor. 
+ubicados según los puntos de calor. También modificamos temas de color. 
 
 ### Implementación de la Interfaz de Usuaria (HTML/CSS/JS)
 
